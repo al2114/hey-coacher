@@ -53,8 +53,9 @@ class ExerciseViewController: CustomUIViewController {
         super.viewDidLoad()
         
         exercises = ExerciseList([
-            "cycling",
-            "walking"
+            "Cycling",
+            "Walking",
+            "Running"
             ])
         exercise = exercises!.currentExercise()
         

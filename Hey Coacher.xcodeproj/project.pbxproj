@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2310A71EE0AF200025D428 /* ConnectRemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2310A61EE0AF200025D428 /* ConnectRemoteViewController.swift */; };
+		1C2310AA1EE0B0BD0025D428 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2310A91EE0B0BD0025D428 /* SettingsViewController.swift */; };
 		CB189AD21EE068A500910881 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD01EE068A500910881 /* MainViewController.swift */; };
 		CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD41EE068B800910881 /* ContainerViewController.swift */; };
 		CB189ADC1EE068B800910881 /* CustomUIViewControllerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD51EE068B800910881 /* CustomUIViewControllerClass.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C2310A61EE0AF200025D428 /* ConnectRemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectRemoteViewController.swift; sourceTree = "<group>"; };
+		1C2310A91EE0B0BD0025D428 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CB189AD01EE068A500910881 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB189AD41EE068B800910881 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = "hey-coacher/ContainerViewController.swift"; sourceTree = "<group>"; };
 		CB189AD51EE068B800910881 /* CustomUIViewControllerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomUIViewControllerClass.swift; path = "hey-coacher/CustomUIViewControllerClass.swift"; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C2310A81EE0B09D0025D428 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1C2310A61EE0AF200025D428 /* ConnectRemoteViewController.swift */,
+				1C2310A91EE0B0BD0025D428 /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		CB189AE21EE0693B00910881 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 		CBD2AB931EE0682700974383 /* Hey Coacher */ = {
 			isa = PBXGroup;
 			children = (
+				1C2310A81EE0B09D0025D428 /* Settings */,
 				CB60E0811EE071E0005D4AB0 /* Notes */,
 				CBD2AB941EE0682800974383 /* AppDelegate.swift */,
 				CB189AE31EE0695700910881 /* Global */,
@@ -253,6 +267,8 @@
 				CB60E0D31EE0A46B005D4AB0 /* ProfileViewController.swift in Sources */,
 				CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */,
 				CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */,
+				1C2310AA1EE0B0BD0025D428 /* SettingsViewController.swift in Sources */,
+				1C2310A71EE0AF200025D428 /* ConnectRemoteViewController.swift in Sources */,
 				CB60E0CD1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift in Sources */,
 				CB189ADD1EE068B800910881 /* GestureHandler.swift in Sources */,
 				CB60E0D11EE0A2D4005D4AB0 /* SessionViewController.swift in Sources */,
