@@ -24,6 +24,7 @@
 		CB60E0961EE08B18005D4AB0 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB60E0931EE08B18005D4AB0 /* OpenEars.framework */; };
 		CB60E0971EE08B18005D4AB0 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB60E0941EE08B18005D4AB0 /* Slt.framework */; };
 		CB60E0CD1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */; };
+		CB60E0D11EE0A2D4005D4AB0 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D01EE0A2D4005D4AB0 /* SessionViewController.swift */; };
 		CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2AB941EE0682800974383 /* AppDelegate.swift */; };
 		CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB981EE0682800974383 /* Main.storyboard */; };
 		CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB9B1EE0682800974383 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		CB60E0941EE08B18005D4AB0 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		CB60E0CB1EE091B1005D4AB0 /* OpenEarsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEarsHeader.h; sourceTree = "<group>"; };
 		CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecognitionOffline.swift; sourceTree = "<group>"; };
+		CB60E0D01EE0A2D4005D4AB0 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		CBD2AB911EE0682700974383 /* Hey Coacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Coacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD2AB941EE0682800974383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD2AB991EE0682800974383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				CB189AE31EE0695700910881 /* Global */,
 				CB189AE21EE0693B00910881 /* Root */,
 				CB189AD01EE068A500910881 /* MainViewController.swift */,
+				CB60E0D01EE0A2D4005D4AB0 /* SessionViewController.swift */,
 				CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */,
 				CBD2AB981EE0682800974383 /* Main.storyboard */,
 				CBD2AB9B1EE0682800974383 /* Assets.xcassets */,
@@ -240,6 +243,7 @@
 				CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */,
 				CB60E0CD1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift in Sources */,
 				CB189ADD1EE068B800910881 /* GestureHandler.swift in Sources */,
+				CB60E0D11EE0A2D4005D4AB0 /* SessionViewController.swift in Sources */,
 				CB189ADF1EE068B800910881 /* MenuList.swift in Sources */,
 				CB189AE01EE068B800910881 /* DelegateFunctions.swift in Sources */,
 				CB60E0831EE072FB005D4AB0 /* ExerciseViewController.swift in Sources */,
