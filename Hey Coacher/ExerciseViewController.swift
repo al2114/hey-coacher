@@ -7,18 +7,66 @@
 //
 
 import UIKit
+var userID: Int = 1
+var sessionID: Int = 0
+
+class ExerciseList {
+    var idx: Int = 0
+    var count: Int = 0
+    var exercises = [String]()
+    
+    
+    init(_ exercises: [String]){
+        self.exercises = exercises
+        self.count = exercises.count
+    }
+    
+    
+    func iterNext() {
+        idx = mod(idx+1,count)
+    }
+    
+    func iterPrevious() {
+        idx = mod(idx-1,count)
+    }
+    
+    func currentExercise() -> String {
+        return exercises[idx]
+    }
+    
+    
+}
 
 class ExerciseViewController: CustomUIViewController {
 
   @IBOutlet weak var mainLabel: UILabel!
   @IBOutlet weak var prevLabel: UILabel!
   @IBOutlet weak var nextLabel: UILabel!
+  @IBOutlet weak var beginsessionLabel: UILabel!
   
-  
+  var menu: MenuList?
+    var exercises: ExerciseList?
+    var exercise: String = ""
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        exercises = ExerciseList([
+            "cycling",
+            "walking"
+            ])
+        exercise = exercises!.currentExercise()
+        
+        let exerciseItemList = [MenuItem("Start \(exercise) session", "startsession"),
+                            MenuItem("Select session, currently selected \(exercise)", "selectexercise"),
+                            MenuItem("Create new exercise", "createexercise"),
+                            MenuItem("Analyze session", "analyze")]
+    
+        
+        menu = MenuList(exerciseItemList)
+        updateLabels()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,20 +75,59 @@ class ExerciseViewController: CustomUIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func handleSwipeLeft(){
+        menu?.iterNext()
+        self.updateLabels()
+    }
+    override func handleSwipeRight(){
+        menu?.iterPrevious()
+        self.updateLabels()
+    }
     override func handleTapLeft(){
         print("Left tap")
         delegate?.transitionTo(viewId: "mainViewController")
     }
-  
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func handleTapRight(){
+        let currentItemId: String = (menu?.currentId())!
+        
+        if currentItemId == "startsession"{
+            print("Start Session")
+            if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=startsession&id=\(userID)&class=\(exercise)") {
+                do {
+                    var contents = try String(contentsOf: url, encoding: .utf8)
+                    let summarydata = contents.format()
+                    let summarydataArr = summarydata.components(separatedBy: " ")
+                    
+                    sessionID = Int(summarydataArr[4])!
+                    delegate?.transitionTo(viewId: "sessionViewController")
+                }
+                catch {
+                    print("Contents could not be loaded")
+                }
+            }
+            else {
+                print("The URL was bad")
+            }
+            
+        }
+        else if currentItemId == "selectexercise"{
+            print("Select Session")
+            //delegate?.transitionTo(viewId: "selectExerciseViewController")
+        }
+        else if currentItemId == "createexercise"{
+            print("Create Exercise")
+            //delegate?.transitionTo(viewId: "createExerciseViewController")
+        }
+        else if currentItemId == "analyze"{
+            print("Data Analysis")
+            //delegate?.transitionTo(viewId: "dataAnalyzeViewController")
+        }
+        
     }
-    */
-
+    
+    func updateLabels(){
+        mainLabel.text = menu?.currentItem;
+        prevLabel.text = menu?.previousItem
+        nextLabel.text = menu?.nextItem;
+    }
 }

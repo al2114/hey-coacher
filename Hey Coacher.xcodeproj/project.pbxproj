@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C23105D1EE088290025D428 /* sessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23105C1EE088290025D428 /* sessionViewController.swift */; };
 		CB189AD21EE068A500910881 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD01EE068A500910881 /* MainViewController.swift */; };
 		CB189AD31EE068A500910881 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD11EE068A500910881 /* SecondViewController.swift */; };
 		CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD41EE068B800910881 /* ContainerViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C23105C1EE088290025D428 /* sessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sessionViewController.swift; sourceTree = "<group>"; };
 		CB189AD01EE068A500910881 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB189AD11EE068A500910881 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CB189AD41EE068B800910881 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = "hey-coacher/ContainerViewController.swift"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				CB189AE21EE0693B00910881 /* Root */,
 				CB189AD01EE068A500910881 /* MainViewController.swift */,
 				CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */,
+				1C23105C1EE088290025D428 /* sessionViewController.swift */,
 				CB189AD11EE068A500910881 /* SecondViewController.swift */,
 				CBD2AB981EE0682800974383 /* Main.storyboard */,
 				CBD2AB9B1EE0682800974383 /* Assets.xcassets */,
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB189AD31EE068A500910881 /* SecondViewController.swift in Sources */,
+				1C23105D1EE088290025D428 /* sessionViewController.swift in Sources */,
 				CB189AD21EE068A500910881 /* MainViewController.swift in Sources */,
 				CB189ADE1EE068B800910881 /* GlobalFunctions.swift in Sources */,
 				CB189AE11EE068B800910881 /* RootViewController.swift in Sources */,
