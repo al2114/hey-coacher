@@ -77,6 +77,14 @@
 			name = Global;
 			sourceTree = "<group>";
 		};
+		CB60E0811EE071E0005D4AB0 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				CB60E07F1EE071C3005D4AB0 /* control_flow.txt */,
+			);
+			name = Notes;
+			sourceTree = "<group>";
+		};
 		CBD2AB881EE0682700974383 = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +104,7 @@
 		CBD2AB931EE0682700974383 /* Hey Coacher */ = {
 			isa = PBXGroup;
 			children = (
-				CB60E07F1EE071C3005D4AB0 /* control_flow.txt */,
+				CB60E0811EE071E0005D4AB0 /* Notes */,
 				CBD2AB941EE0682800974383 /* AppDelegate.swift */,
 				CB189AE31EE0695700910881 /* Global */,
 				CB189AE21EE0693B00910881 /* Root */,
