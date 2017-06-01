@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class sessionViewController: CustomUIViewController {
+class SessionViewController: CustomUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

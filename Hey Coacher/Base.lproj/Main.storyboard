@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E183b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root Controller-->
+        <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Root Controller" customClass="RootViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--Main Controller-->
+        <!--Main View Controller-->
         <scene sceneID="GCx-H4-4cP">
             <objects>
-                <viewController storyboardIdentifier="mainViewController" title="MainViewController" id="VXF-6Q-jw8" userLabel="Main Controller" customClass="MainViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" title="MainViewController" id="VXF-6Q-jw8" userLabel="Main View Controller" customClass="MainViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qP1-LV-Saq"/>
                         <viewControllerLayoutGuide type="bottom" id="kVL-Tt-lul"/>
@@ -94,12 +94,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dF-TI-ycx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941.60000000000002" y="-144.3778110944528"/>
+            <point key="canvasLocation" x="865" y="139"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="fKo-e2-Mln">
             <objects>
-                <viewController storyboardIdentifier="sessionViewController" id="ipF-CU-05d" customClass="sessionViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sessionViewController" id="ipF-CU-05d" customClass="SessionViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3HS-hA-eX2"/>
                         <viewControllerLayoutGuide type="bottom" id="tgj-n0-j1Y"/>
@@ -112,12 +112,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3W-D1-wCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666" y="-142"/>
+            <point key="canvasLocation" x="2346" y="-126"/>
         </scene>
-        <!--Exercise Controller-->
+        <!--Exercise View Controller-->
         <scene sceneID="kc0-3J-Taj">
             <objects>
-                <viewController storyboardIdentifier="exerciseViewController" title="ExerciseViewController" id="zTy-6i-RfT" userLabel="Exercise Controller" customClass="ExerciseViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exerciseViewController" title="ExerciseViewController" id="zTy-6i-RfT" userLabel="Exercise View Controller" customClass="ExerciseViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SJw-W5-r1c"/>
                         <viewControllerLayoutGuide type="bottom" id="p2h-67-rwV"/>
@@ -166,7 +166,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQd-Ys-XwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941.60000000000002" y="559.97001499250382"/>
+            <point key="canvasLocation" x="1618" y="-126"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="XIg-oS-gSl">
+            <objects>
+                <viewController storyboardIdentifier="profileViewController" title="ProfileViewController" id="zdb-yI-VUc" userLabel="Profile View Controller" customClass="ProfileViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Br1-g8-naa"/>
+                        <viewControllerLayoutGuide type="bottom" id="NwY-ct-VEZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uYE-36-3TL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIh-Yk-7wC">
+                                <rect key="frame" x="16" y="315.5" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-iC-97u">
+                                <rect key="frame" x="16" y="215.5" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKI-MT-xdv">
+                                <rect key="frame" x="16" y="415.5" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18870902449999999" green="0.8417057966" blue="0.48610534129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="cKI-MT-xdv" secondAttribute="leading" id="5EC-T8-fsm"/>
+                            <constraint firstItem="cKI-MT-xdv" firstAttribute="centerY" secondItem="uYE-36-3TL" secondAttribute="centerY" constant="100" id="G9q-s6-RPV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cKI-MT-xdv" secondAttribute="trailing" id="KkE-0N-Ic2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fTO-iC-97u" secondAttribute="trailing" id="Lih-dR-wkh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fTO-iC-97u" secondAttribute="leading" id="OoE-GH-qvj"/>
+                            <constraint firstItem="yIh-Yk-7wC" firstAttribute="trailing" secondItem="uYE-36-3TL" secondAttribute="trailingMargin" id="bPE-1C-5zh"/>
+                            <constraint firstItem="yIh-Yk-7wC" firstAttribute="centerY" secondItem="uYE-36-3TL" secondAttribute="centerY" id="hr5-aG-m5g"/>
+                            <constraint firstItem="yIh-Yk-7wC" firstAttribute="leading" secondItem="uYE-36-3TL" secondAttribute="leadingMargin" id="lhj-nU-jy1"/>
+                            <constraint firstItem="fTO-iC-97u" firstAttribute="centerY" secondItem="uYE-36-3TL" secondAttribute="centerY" constant="-100" id="twM-dO-Phr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="yIh-Yk-7wC" id="XTc-ZY-PeJ"/>
+                        <outlet property="nextLabel" destination="cKI-MT-xdv" id="cvm-RN-G5G"/>
+                        <outlet property="prevLabel" destination="fTO-iC-97u" id="rnW-xK-7UH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmJ-pa-Qat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1617" y="548"/>
         </scene>
     </scenes>
 </document>

@@ -54,7 +54,7 @@ class MainViewController: CustomUIViewController {
     let currentItemId: String = (menu?.currentId())!
     
     if currentItemId == "profile"{
-      print("transition profile")
+      delegate?.transitionTo(viewId: "profileViewController")
     }
     else if currentItemId == "exercise"{
       delegate?.transitionTo(viewId: "exerciseViewController")
