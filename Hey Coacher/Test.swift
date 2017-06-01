@@ -8,6 +8,6 @@
 
 import Foundation
 
-funct test(){
+func test(){
   print("Hello world!")
 }
