@@ -24,9 +24,11 @@ class MainViewController: CustomUIViewController {
                         MenuItem("Settings", "settings"),
                         MenuItem("Help","help")]
     let name = "Andrew"
-    let entryMessage = "Welcome back, \(name)!"
+    let entryMessage = "Hello, \(name)!"
     
-    menu = MenuList(mainItemList, message: entryMessage)
+    
+    
+    menu = MenuList(mainItemList)
     updateLabels()
     
   }
@@ -39,10 +41,21 @@ class MainViewController: CustomUIViewController {
 
   
   override func handleSwipeLeft(){
+    if entrySpeech {
+      entrySpeech = false
+      speak((menu?.currentItem)!)
+      return
+    }
+    
     menu?.iterNext()
     self.updateLabels()
   }
   override func handleSwipeRight(){
+    if entrySpeech {
+      entrySpeech = false
+      speak((menu?.currentItem)!)
+      return
+    }
     menu?.iterPrevious()
     self.updateLabels()
   }
@@ -51,6 +64,13 @@ class MainViewController: CustomUIViewController {
     
   }
   override func handleTapRight(){
+    
+    if entrySpeech {
+      entrySpeech = false
+      speak((menu?.currentItem)!)
+      return
+    }
+    
     let currentItemId: String = (menu?.currentId())!
     
     if currentItemId == "profile"{

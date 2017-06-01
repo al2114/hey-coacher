@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
-
-class CustomUIViewController: UIViewController {
+class CustomUIViewController: UIViewController, AVSpeechSynthesizerDelegate {
   
-  var delegate: rootDelegate?
+  var delegate: RootDelegate?
   
   func handleAction(action: ActionKey){
     switch action{
@@ -43,6 +43,6 @@ class CustomUIViewController: UIViewController {
 }
 
 
-protocol rootDelegate {
+protocol RootDelegate {
   func transitionTo(viewId: String)
 }

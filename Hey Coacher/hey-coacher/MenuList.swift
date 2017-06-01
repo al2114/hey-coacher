@@ -14,15 +14,17 @@ class MenuList {
   var idx: Int = 0
   var count: Int = 0
   var items = [MenuItem]()
-
+  
   
   init(_ items: [MenuItem], message: String = ""){
     self.items = items
     self.count = items.count
 
     if !message.isEmpty {
-//      speak(message)
+      speak(message)
+      entrySpeech = true
     }
+    speakWait(currentItem)
   }
 
   var currentItem: String {
@@ -39,10 +41,12 @@ class MenuList {
 
   func iterNext() {
     idx = mod(idx+1,count)
+    speak(currentItem)
   }
 
   func iterPrevious() {
     idx = mod(idx-1,count)
+    speak(currentItem)
   }
   
   func currentId() -> String {

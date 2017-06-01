@@ -10,6 +10,7 @@ import Foundation
 
 import UIKit
 
+// Parity based on operand mod
 func mod(_ a: Int, _ n: Int) -> Int {
   precondition(n > 0, "modulus must be positive")
   let r = a % n

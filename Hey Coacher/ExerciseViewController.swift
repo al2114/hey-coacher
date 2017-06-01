@@ -37,6 +37,11 @@ class ExerciseList {
     
 }
 
+var exercises: ExerciseList = ExerciseList([
+  "cycling",
+  "walking"
+  ])
+
 class ExerciseViewController: CustomUIViewController {
 
   @IBOutlet weak var mainLabel: UILabel!
@@ -45,89 +50,78 @@ class ExerciseViewController: CustomUIViewController {
   @IBOutlet weak var beginsessionLabel: UILabel!
   
   var menu: MenuList?
-    var exercises: ExerciseList?
-    var exercise: String = ""
+  
+  var exercise: String = exercises.currentExercise()
     
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        exercises = ExerciseList([
-            "cycling",
-            "walking"
-            ])
-        exercise = exercises!.currentExercise()
-        
-        let exerciseItemList = [MenuItem("Start \(exercise) session", "startsession"),
-                            MenuItem("Select session, currently selected \(exercise)", "selectexercise"),
-                            MenuItem("Create new exercise", "createexercise"),
-                            MenuItem("Analyze session", "analyze")]
-    
-        
-        menu = MenuList(exerciseItemList)
-        updateLabels()
-        
-        // Do any additional setup after loading the view.
-    }
+  override func viewDidLoad() {
+      super.viewDidLoad()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func handleSwipeLeft(){
-        menu?.iterNext()
-        self.updateLabels()
-    }
-    override func handleSwipeRight(){
-        menu?.iterPrevious()
-        self.updateLabels()
-    }
-    override func handleTapLeft(){
-        print("Left tap")
-        delegate?.transitionTo(viewId: "mainViewController")
-    }
-    override func handleTapRight(){
-        let currentItemId: String = (menu?.currentId())!
-        
-        if currentItemId == "startsession"{
-            print("Start Session")
-            if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=startsession&id=\(userID)&class=\(exercise)") {
-                do {
-                    var contents = try String(contentsOf: url, encoding: .utf8)
-                    let summarydata = contents.format()
-                    let summarydataArr = summarydata.components(separatedBy: " ")
-                    
-                    sessionID = Int(summarydataArr[4])!
-                    delegate?.transitionTo(viewId: "sessionViewController")
-                }
-                catch {
-                    print("Contents could not be loaded")
-                }
-            }
-            else {
-                print("The URL was bad")
-            }
-            
-        }
-        else if currentItemId == "selectexercise"{
-            print("Select Session")
-            //delegate?.transitionTo(viewId: "selectExerciseViewController")
-        }
-        else if currentItemId == "createexercise"{
-            print("Create Exercise")
-            //delegate?.transitionTo(viewId: "createExerciseViewController")
-        }
-        else if currentItemId == "analyze"{
-            print("Data Analysis")
-            //delegate?.transitionTo(viewId: "dataAnalyzeViewController")
-        }
-        
-    }
-    
-    func updateLabels(){
-        mainLabel.text = menu?.currentItem;
-        prevLabel.text = menu?.previousItem
-        nextLabel.text = menu?.nextItem;
-    }
+      let exerciseItemList = [MenuItem("Start \(exercise) session", "startsession"),
+                          MenuItem("Change exercise, \(exercise) is currently selected", "selectexercise"),
+                          MenuItem("Create new exercise", "createexercise"),
+                          MenuItem("Analyze session", "analyze")]
+  
+      
+      menu = MenuList(exerciseItemList)
+      updateLabels()
+      
+      // Do any additional setup after loading the view.
+  }
+
+  override func handleSwipeLeft(){
+      menu?.iterNext()
+      self.updateLabels()
+  }
+  override func handleSwipeRight(){
+      menu?.iterPrevious()
+      self.updateLabels()
+  }
+  override func handleTapLeft(){
+      print("Left tap")
+      delegate?.transitionTo(viewId: "mainViewController")
+  }
+  override func handleTapRight(){
+      let currentItemId: String = (menu?.currentId())!
+      
+      if currentItemId == "startsession"{
+          print("Start Session")
+          if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=startsession&id=\(userID)&class=\(exercise)") {
+              do {
+                  var contents = try String(contentsOf: url, encoding: .utf8)
+                  let summarydata = contents.format()
+                  let summarydataArr = summarydata.components(separatedBy: " ")
+                  
+                  sessionID = Int(summarydataArr[4])!
+                  delegate?.transitionTo(viewId: "sessionViewController")
+              }
+              catch {
+                  print("Contents could not be loaded")
+              }
+          }
+          else {
+              print("The URL was bad")
+          }
+          
+      }
+      else if currentItemId == "selectexercise"{
+          //print("Select Session")
+          //delegate?.transitionTo(viewId: "selectExerciseViewController")
+      }
+      else if currentItemId == "createexercise"{
+          print("Create Exercise")
+          //delegate?.transitionTo(viewId: "createExerciseViewController")
+      }
+      else if currentItemId == "analyze"{
+          print("Data Analysis")
+          //delegate?.transitionTo(viewId: "dataAnalyzeViewController")
+      }
+      
+  }
+  
+  func updateLabels(){
+      mainLabel.text = menu?.currentItem;
+      prevLabel.text = menu?.previousItem
+      nextLabel.text = menu?.nextItem;
+  }
 }

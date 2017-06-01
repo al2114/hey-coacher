@@ -41,10 +41,9 @@ class ProfileViewController: CustomUIViewController {
       profileList += [MenuItem(user.name, "uid-"+user.id)]
     }
 
-    profileList += [MenuItem("Create new profile", "newProfile")]
+    profileList += [MenuItem("Create new profile", "newprofile")]
     
-    
-    menu = MenuList(profileList)
+    menu = MenuList(profileList, message: "Select a profile")
     updateLabels()
     
     // Do any additional setup after loading the view.
@@ -56,18 +55,39 @@ class ProfileViewController: CustomUIViewController {
   }
   
   override func handleSwipeLeft(){
+    if entrySpeech {
+      entrySpeech = false
+      speak((menu?.currentItem)!)
+      return
+    }
+    
     menu?.iterNext()
     self.updateLabels()
   }
   override func handleSwipeRight(){
+    if entrySpeech {
+      entrySpeech = false
+      speak((menu?.currentItem)!)
+      return
+    }
+    
     menu?.iterPrevious()
     self.updateLabels()
   }
   override func handleTapLeft(){
+    if entrySpeech {
+      entrySpeech = false
+    }
+    
     print("Left tap")
     delegate?.transitionTo(viewId: "mainViewController")
   }
   override func handleTapRight(){
+    if entrySpeech {
+      entrySpeech = false
+      speak((menu?.currentItem)!)
+      return
+    }
     let currentItemId: String = (menu?.currentId())!
   }
   
