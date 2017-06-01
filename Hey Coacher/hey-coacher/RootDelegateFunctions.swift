@@ -9,6 +9,7 @@
 extension RootViewController {
   
   func transitionTo(viewId: String){
+    print("Root delegated, switching container view")
     containerSwitchToViewController(viewId)
   }
 }

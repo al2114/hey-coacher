@@ -17,7 +17,7 @@ class MainViewController: CustomUIViewController {
 
   override func viewDidLoad() {
       super.viewDidLoad()
-
+    
     let mainItemList = [MenuItem("Switch Profile", "profile"),
                         MenuItem("Exercise", "exercise"),
                         MenuItem("Connect Devices", "bluetooth"),
@@ -51,13 +51,23 @@ class MainViewController: CustomUIViewController {
     
   }
   override func handleTapRight(){
-    
     let currentItemId: String = (menu?.currentId())!
     
     if currentItemId == "profile"{
-      delegate?.transitionTo(viewId: "profileViewController")
+      print("transition profile")
     }
-    
+    else if currentItemId == "exercise"{
+      delegate?.transitionTo(viewId: "exerciseViewController")
+    }
+    else if currentItemId == "bluetooth"{
+      print("transition bluetooth")
+    }
+    else if currentItemId == "settings"{
+      print("transition setting")
+    }
+    else if currentItemId == "help"{
+      print("transition help")
+    }
     
   }
   

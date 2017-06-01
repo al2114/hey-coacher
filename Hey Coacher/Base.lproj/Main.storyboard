@@ -13,7 +13,7 @@
         <!--Root Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Root Controller" customClass="RootViewController" customModule="test_structure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Root Controller" customClass="RootViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,7 +45,7 @@
         <!--Main Controller-->
         <scene sceneID="GCx-H4-4cP">
             <objects>
-                <viewController storyboardIdentifier="mainView" title="MainViewController" id="VXF-6Q-jw8" userLabel="Main Controller" customClass="MainViewController" customModule="test_structure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" title="MainViewController" id="VXF-6Q-jw8" userLabel="Main Controller" customClass="MainViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qP1-LV-Saq"/>
                         <viewControllerLayoutGuide type="bottom" id="kVL-Tt-lul"/>
@@ -96,24 +96,59 @@
             </objects>
             <point key="canvasLocation" x="941.60000000000002" y="-144.3778110944528"/>
         </scene>
-        <!--Second Controller-->
-        <scene sceneID="qL4-lg-udF">
+        <!--Exercise Controller-->
+        <scene sceneID="kc0-3J-Taj">
             <objects>
-                <viewController storyboardIdentifier="secondComponent" id="xUH-ap-r7E" userLabel="Second Controller" customClass="SecondViewController" customModule="test_structure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="exerciseViewController" title="ExerciseViewController" id="zTy-6i-RfT" userLabel="Exercise Controller" customClass="ExerciseViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7zi-uy-aQ6"/>
-                        <viewControllerLayoutGuide type="bottom" id="jvi-T4-vhU"/>
+                        <viewControllerLayoutGuide type="top" id="SJw-W5-r1c"/>
+                        <viewControllerLayoutGuide type="bottom" id="p2h-67-rwV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="m43-vU-y3w">
+                    <view key="view" contentMode="scaleToFill" id="y3L-aG-We1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1106610725" green="0.75371093749999996" blue="0.27142353879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jp-hv-d6I">
+                                <rect key="frame" x="16" y="315.5" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evk-oU-bPA">
+                                <rect key="frame" x="16" y="215.5" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWv-s2-kxB">
+                                <rect key="frame" x="16" y="415.5" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18870902447740259" green="0.84170579663212441" blue="0.48610534127358884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4jp-hv-d6I" firstAttribute="trailing" secondItem="y3L-aG-We1" secondAttribute="trailingMargin" id="Bqo-kn-cBy"/>
+                            <constraint firstItem="4jp-hv-d6I" firstAttribute="centerY" secondItem="y3L-aG-We1" secondAttribute="centerY" id="LSn-Ad-DgR"/>
+                            <constraint firstItem="evk-oU-bPA" firstAttribute="centerY" secondItem="y3L-aG-We1" secondAttribute="centerY" constant="-100" id="S3r-AC-a9j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="evk-oU-bPA" secondAttribute="trailing" id="SyT-z9-dp7"/>
+                            <constraint firstItem="4jp-hv-d6I" firstAttribute="leading" secondItem="y3L-aG-We1" secondAttribute="leadingMargin" id="Uo2-uh-O3t"/>
+                            <constraint firstItem="FWv-s2-kxB" firstAttribute="centerY" secondItem="y3L-aG-We1" secondAttribute="centerY" constant="100" id="d58-TV-d9L"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="evk-oU-bPA" secondAttribute="leading" id="pPw-wA-cD2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FWv-s2-kxB" secondAttribute="leading" id="tqk-jc-g3H"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FWv-s2-kxB" secondAttribute="trailing" id="vAj-TS-SL5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="JiZ-M0-AjK"/>
+                    <connections>
+                        <outlet property="mainLabel" destination="4jp-hv-d6I" id="Dbu-5M-rGu"/>
+                        <outlet property="nextLabel" destination="FWv-s2-kxB" id="uYV-3s-zqQ"/>
+                        <outlet property="prevLabel" destination="evk-oU-bPA" id="6D9-Oo-24Q"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8lV-6R-mpn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQd-Ys-XwG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="549"/>
+            <point key="canvasLocation" x="942" y="560"/>
         </scene>
     </scenes>
 </document>

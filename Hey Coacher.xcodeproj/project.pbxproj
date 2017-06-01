@@ -18,6 +18,7 @@
 		CB189AE11EE068B800910881 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189ADA1EE068B800910881 /* RootViewController.swift */; };
 		CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E07D1EE06B53005D4AB0 /* Test.swift */; };
 		CB60E0801EE071C3005D4AB0 /* control_flow.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB60E07F1EE071C3005D4AB0 /* control_flow.txt */; };
+		CB60E0831EE072FB005D4AB0 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */; };
 		CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2AB941EE0682800974383 /* AppDelegate.swift */; };
 		CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB981EE0682800974383 /* Main.storyboard */; };
 		CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB9B1EE0682800974383 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		CB189ADA1EE068B800910881 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "hey-coacher/RootViewController.swift"; sourceTree = "<group>"; };
 		CB60E07D1EE06B53005D4AB0 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		CB60E07F1EE071C3005D4AB0 /* control_flow.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control_flow.txt; sourceTree = "<group>"; };
+		CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		CBD2AB911EE0682700974383 /* Hey Coacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Coacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD2AB941EE0682800974383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD2AB991EE0682800974383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				CB189AE31EE0695700910881 /* Global */,
 				CB189AE21EE0693B00910881 /* Root */,
 				CB189AD01EE068A500910881 /* MainViewController.swift */,
+				CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */,
 				CB189AD11EE068A500910881 /* SecondViewController.swift */,
 				CBD2AB981EE0682800974383 /* Main.storyboard */,
 				CBD2AB9B1EE0682800974383 /* Assets.xcassets */,
@@ -201,6 +204,7 @@
 				CB189ADD1EE068B800910881 /* GestureHandler.swift in Sources */,
 				CB189ADF1EE068B800910881 /* MenuList.swift in Sources */,
 				CB189AE01EE068B800910881 /* RootDelegateFunctions.swift in Sources */,
+				CB60E0831EE072FB005D4AB0 /* ExerciseViewController.swift in Sources */,
 				CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

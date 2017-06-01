@@ -19,8 +19,6 @@ enum ActionKey {
 class RootViewController: UIViewController, rootDelegate {
   
   @IBOutlet weak var containerView: UIView!
-
-  var currentState: String?
   
   weak var currentViewController: CustomUIViewController?
   
@@ -29,7 +27,7 @@ class RootViewController: UIViewController, rootDelegate {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
 
-    let initialState = "mainView"
+    let initialState = "mainViewController"
     containerViewIntialize(initialState)
 
     
@@ -44,9 +42,7 @@ class RootViewController: UIViewController, rootDelegate {
     view.addGestureRecognizer(leftSwipe)
     view.addGestureRecognizer(rightSwipe)
     view.addGestureRecognizer(tap)
-   
-    currentViewController?.delegate = self
-    
+       
   }
 }
 

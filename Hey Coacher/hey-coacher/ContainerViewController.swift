@@ -15,7 +15,7 @@ extension RootViewController {
     self.currentViewController!.view.translatesAutoresizingMaskIntoConstraints = false
     self.addChildViewController(self.currentViewController!)
     self.containerAddSubview(self.currentViewController!.view, toView: self.containerView)
-    self.currentState = viewIdentifier
+    self.currentViewController?.delegate = self
   }
   
   func containerSwitchToViewController(_ viewIdentifier: String){
@@ -23,7 +23,7 @@ extension RootViewController {
     newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
     cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
     self.currentViewController = newViewController as? CustomUIViewController
-    self.currentState = viewIdentifier
+    self.currentViewController?.delegate = self
   }
   
   func containerAddSubview(_ subView:UIView, toView parentView:UIView) {
