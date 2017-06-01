@@ -12,7 +12,6 @@ class sessionViewController: CustomUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +21,28 @@ class sessionViewController: CustomUIViewController {
     }
     
     override func handleSwipeLeft(){
-        print("Heart Rate")
+        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=value&reading=HRate&sid=\(sessionID)") {
+            do {
+                var contents = try String(contentsOf: url, encoding: .utf8)
+                let summarydata = contents.format()
+                let summarydataArr = summarydata.components(separatedBy: " ")
+                
+                let hrate = summarydataArr[5]
+                
+                let utterace = AVSpeechUtterance(string: "Your heart rate is " + hrate + " bpm")
+                utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
+                utterace.rate = 0.45
+                
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterace);
+            }
+            catch {
+                print("Contents could not be loaded")
+            }
+        }
+        else {
+            print("The URL was bad")
+        }
     }
     override func handleSwipeRight(){
         print("Cadence")
@@ -31,6 +51,6 @@ class sessionViewController: CustomUIViewController {
         print("Distance")
     }
     override func handleTapRight(){
-        print("Speed")
+        print("Pace")
     }
 }
