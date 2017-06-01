@@ -12,7 +12,7 @@ profileViewController (parent: mainViewController)
 	Create new profile -> createProfileViewController
 
 exerciseViewController  (parent: mainViewController)
-	Begin [$exercise] session -> sessionViewController
+	Start [$exercise] session -> sessionViewController
 	Select exercise, currently selected [$execise] -> selectExerciseMethod
 	Create new exercise -> createExerciseViewController
 	? Analyse data -> dataAnalysisViewController
