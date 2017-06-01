@@ -16,6 +16,7 @@
 		CB189ADF1EE068B800910881 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD81EE068B800910881 /* MenuList.swift */; };
 		CB189AE01EE068B800910881 /* RootDelegateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD91EE068B800910881 /* RootDelegateFunctions.swift */; };
 		CB189AE11EE068B800910881 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189ADA1EE068B800910881 /* RootViewController.swift */; };
+		CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E07D1EE06B53005D4AB0 /* Test.swift */; };
 		CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2AB941EE0682800974383 /* AppDelegate.swift */; };
 		CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB981EE0682800974383 /* Main.storyboard */; };
 		CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB9B1EE0682800974383 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		CB189AD81EE068B800910881 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = "hey-coacher/MenuList.swift"; sourceTree = "<group>"; };
 		CB189AD91EE068B800910881 /* RootDelegateFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootDelegateFunctions.swift; path = "hey-coacher/RootDelegateFunctions.swift"; sourceTree = "<group>"; };
 		CB189ADA1EE068B800910881 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "hey-coacher/RootViewController.swift"; sourceTree = "<group>"; };
+		CB60E07D1EE06B53005D4AB0 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		CBD2AB911EE0682700974383 /* Hey Coacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Coacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD2AB941EE0682800974383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD2AB991EE0682800974383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				CB189AD71EE068B800910881 /* GlobalFunctions.swift */,
 				CB189AD81EE068B800910881 /* MenuList.swift */,
 				CB189AD51EE068B800910881 /* CustomUIViewControllerClass.swift */,
+				CB60E07D1EE06B53005D4AB0 /* Test.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				CB189ADE1EE068B800910881 /* GlobalFunctions.swift in Sources */,
 				CB189AE11EE068B800910881 /* RootViewController.swift in Sources */,
 				CB189ADC1EE068B800910881 /* CustomUIViewControllerClass.swift in Sources */,
+				CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */,
 				CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */,
 				CB189ADD1EE068B800910881 /* GestureHandler.swift in Sources */,
 				CB189ADF1EE068B800910881 /* MenuList.swift in Sources */,
