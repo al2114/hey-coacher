@@ -375,7 +375,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.imperial-smartbike.Hey-Coacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(inherited) $(PROJECT_DIR)/OpenEarsHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/OpenEarsHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -393,7 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.imperial-smartbike.Hey-Coacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(inherited) $(PROJECT_DIR)/OpenEarsHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/OpenEarsHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
