@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C23105D1EE088290025D428 /* sessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23105C1EE088290025D428 /* sessionViewController.swift */; };
 		CB189AD21EE068A500910881 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD01EE068A500910881 /* MainViewController.swift */; };
 		CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD41EE068B800910881 /* ContainerViewController.swift */; };
 		CB189ADC1EE068B800910881 /* CustomUIViewControllerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD51EE068B800910881 /* CustomUIViewControllerClass.swift */; };
@@ -32,7 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C23105C1EE088290025D428 /* sessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sessionViewController.swift; sourceTree = "<group>"; };
 		CB189AD01EE068A500910881 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CB189AD41EE068B800910881 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = "hey-coacher/ContainerViewController.swift"; sourceTree = "<group>"; };
 		CB189AD51EE068B800910881 /* CustomUIViewControllerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomUIViewControllerClass.swift; path = "hey-coacher/CustomUIViewControllerClass.swift"; sourceTree = "<group>"; };
@@ -377,7 +375,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.imperial-smartbike.Hey-Coacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/andrewli/Projects/hey-coacher/OpenEarsHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(inherited) $(PROJECT_DIR)/OpenEarsHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -395,7 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.imperial-smartbike.Hey-Coacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/andrewli/Projects/hey-coacher/OpenEarsHeader.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(inherited) $(PROJECT_DIR)/OpenEarsHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
