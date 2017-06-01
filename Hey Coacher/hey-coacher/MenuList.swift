@@ -1,14 +1,23 @@
 
 import Foundation
 
+struct MenuItem{
+  var desc: String
+  var id: String
+  init(_ desc: String, _ id: String){
+    self.desc = desc
+    self.id = id
+  }
+}
+
 class MenuList {
   var idx: Int = 0
   var count: Int = 0
-  var menuItem = [String]()
+  var items = [MenuItem]()
 
   
-  init(_ items: [String], message: String = ""){
-    self.menuItem = items
+  init(_ items: [MenuItem], message: String = ""){
+    self.items = items
     self.count = items.count
 
     if !message.isEmpty {
@@ -17,15 +26,15 @@ class MenuList {
   }
 
   var currentItem: String {
-    return menuItem[idx]
+    return items[idx].desc
   }
 
   var previousItem: String {
-    return menuItem[mod(idx-1,count)]
+    return items[mod(idx-1,count)].desc
   }
 
   var nextItem: String {
-    return menuItem[mod(idx+1,count)]
+    return items[mod(idx+1,count)].desc
   }
 
   func iterNext() {
@@ -36,6 +45,9 @@ class MenuList {
     idx = mod(idx-1,count)
   }
   
+  func currentId() -> String {
+    return items[idx].id
+  }
   
   
 }
