@@ -59,7 +59,7 @@ class ExerciseViewController: CustomUIViewController {
 
       let exerciseItemList = [MenuItem("Start \(exercise) session", "startsession"),
                           MenuItem("Change exercise, \(exercise) is currently selected", "selectexercise"),
-                          MenuItem("Create new exercise", "createexercise"),
+                          MenuItem("Create new exercise profile", "createexercise"),
                           MenuItem("Analyze session", "analyze")]
   
       

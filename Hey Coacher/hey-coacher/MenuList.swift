@@ -23,8 +23,11 @@ class MenuList {
     if !message.isEmpty {
       speak(message)
       entrySpeech = true
+      speakWait(currentItem)
     }
-    speakWait(currentItem)
+    else {
+      speak(currentItem)
+    }
   }
 
   var currentItem: String {
