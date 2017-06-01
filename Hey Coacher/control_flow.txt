@@ -1,0 +1,50 @@
+mainViewController
+	Switch Profile -> profileViewController
+	Exercise -> exerciseViewController
+	Connect Bluetooth Device -> bluetoothViewController
+	Settings -> settingsViewController
+	Help -> helpViewController
+
+
+profileViewController (parent: mainViewController)
+	Profile (method) -> selectProfileMethod
+	...
+	Create new profile -> createProfileViewController
+
+exerciseViewController  (parent: mainViewController)
+	Begin [$exercise] session -> sessionViewController
+	Select exercise, currently selected [$execise] -> selectExerciseMethod
+	Create new exercise -> createExerciseViewController
+	? Analyse data -> dataAnalysisViewController
+
+
+bluetoothViewController  (parent: mainViewController)
+	Connect remote -> connectRemoteMethod
+	Search for sensors -> bluetoothViewController
+
+settingsViewController  (parent: mainViewController)
+	Setting [enabled/disabled] -> toggleSettingMethod
+	...
+
+helpViewController  (parent: mainViewController)
+	Help topic A -> helpMethod
+	...
+
+createProfileViewController  (parent: profileViewController)
+	createProfileMethod (audio/keyboard) -> profileViewController
+
+createExerciseViewController  (parent: exerciseViewController)
+	createExerciseMethod (audio/keyboard) -> exerciseViewController
+
+sessionViewController  (parent: ?)
+	Heart rate: reading
+	Cadence: reading
+	Pace: reading
+	Distance: reading
+	Analyse performance -> analyseMethod
+
+dataAnalysisViewController  (parent: exerciseViewController)
+	General performance
+
+
+

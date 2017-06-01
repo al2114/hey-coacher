@@ -18,11 +18,11 @@ class MainViewController: CustomUIViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
 
-    let mainItemList = ["Switch Profile",
-                        "Training",
-                        "Connect Devices",
-                        "Settings",
-                        "Help"]
+    let mainItemList = [MenuItem("Switch Profile", "profile"),
+                        MenuItem("Exercise", "exercise"),
+                        MenuItem("Connect Devices", "bluetooth"),
+                        MenuItem("Settings", "settings"),
+                        MenuItem("Help","help")]
     let name = "Andrew"
     let entryMessage = "Welcome back, \(name)!"
     
@@ -48,9 +48,17 @@ class MainViewController: CustomUIViewController {
   }
   override func handleTapLeft(){
 //    delegate?.transitionTo(viewId: menu?.parent)
+    
   }
   override func handleTapRight(){
-    delegate?.transitionTo(viewId: "secondComponent")
+    
+    let currentItemId: String = (menu?.currentId())!
+    
+    if currentItemId == "profile"{
+      delegate?.transitionTo(viewId: "profileViewController")
+    }
+    
+    
   }
   
   
