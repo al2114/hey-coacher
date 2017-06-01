@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 
 class SessionViewController: CustomUIViewController {
+    @IBOutlet weak var displayTextLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +22,21 @@ class SessionViewController: CustomUIViewController {
     }
     
     override func handleSwipeLeft(){
-        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=value&reading=HRate&sid=\(sessionID)") {
+        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=value&reading=Pace&sid=\(sessionID)") {
             do {
                 var contents = try String(contentsOf: url, encoding: .utf8)
                 let summarydata = contents.format()
                 let summarydataArr = summarydata.components(separatedBy: " ")
                 
-                let hrate = summarydataArr[5]
+                let pacevalue = summarydataArr[5]
                 
-                let utterace = AVSpeechUtterance(string: "Your heart rate is " + hrate + " bpm")
+                let utterace = AVSpeechUtterance(string: "Your pace is " + pacevalue + " minutes per km")
                 utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
                 utterace.rate = 0.45
                 
                 let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterace);
+                synthesizer.speak(utterace)
+                displayTextLabel.text = "Your pace is " + pacevalue + " min/km"
             }
             catch {
                 print("Contents could not be loaded")
@@ -44,13 +46,51 @@ class SessionViewController: CustomUIViewController {
             print("The URL was bad")
         }
     }
+    
     override func handleSwipeRight(){
-        print("Cadence")
+        let utterace = AVSpeechUtterance(string: "Your cadence is  rpm")
+        utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterace.rate = 0.45
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterace)
+        displayTextLabel.text = "Your cadence is  rpm"
     }
+    
     override func handleTapLeft(){
-        print("Distance")
+        let utterace = AVSpeechUtterance(string: "Your heart rate is  bpm")
+        utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterace.rate = 0.45
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterace)
+        displayTextLabel.text = "Your heart rate is  bpm"
     }
+    
     override func handleTapRight(){
-        print("Pace")
+        let utterace = AVSpeechUtterance(string: "Your distance travelled is  m")
+        utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterace.rate = 0.45
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterace)
+        displayTextLabel.text = "Your distance travelled is  m"
+    }
+    
+    @IBAction func endSessionButton(_ sender: Any) {
+        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=endsession&sid=\(sessionID)") {
+            do {
+                var contents = try String(contentsOf: url, encoding: .utf8)
+                let summarydata = contents.format()
+                let summarydataArr = summarydata.components(separatedBy: " ")
+                if(summarydataArr[4] == "Session" && summarydataArr[5] == "Ended"){
+                    print ("Session Ended")
+                    delegate?.transitionTo(viewId: "mainViewController")
+                }
+            }
+            catch {
+                print("Contents could not be loaded")
+            }
+        }
+        else {
+            print("The URL was bad")
+        }
     }
 }
