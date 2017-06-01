@@ -53,4 +53,23 @@ class SessionViewController: CustomUIViewController {
     override func handleTapRight(){
         print("Pace")
     }
+    
+    @IBAction func endSessionButton(_ sender: Any) {
+        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=endsession&sid=\(sessionID)") {
+            do {
+                var contents = try String(contentsOf: url, encoding: .utf8)
+                let summarydata = contents.format()
+                let summarydataArr = summarydata.components(separatedBy: " ")
+                if(summarydataArr[4] == "Session" && summarydataArr[5] == "Ended"){
+                    print ("Session Ended")
+                }
+            }
+            catch {
+                print("Contents could not be loaded")
+            }
+        }
+        else {
+            print("The URL was bad")
+        }
+    }
 }
