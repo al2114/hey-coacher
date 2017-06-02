@@ -77,7 +77,9 @@ class ExerciseViewController: CustomUIViewController {
   }
   override func handleTapLeft(){
       print("Left tap")
-      delegate?.transitionTo(viewId: "mainViewController")
+      goBack = true
+      prevIdx = 1
+      delegate?.transitionTo(viewId: "mainViewController", options: "")
   }
   override func handleTapRight(){
       let currentItemId: String = (menu?.currentId())!
@@ -91,7 +93,7 @@ class ExerciseViewController: CustomUIViewController {
 //                  let summarydataArr = summarydata.components(separatedBy: " ")
 //                  
 //                  sessionID = Int(summarydataArr[4])!
-                  delegate?.transitionTo(viewId: "sessionViewController")
+                  delegate?.transitionTo(viewId: "sessionViewController", options: "")
 //              }
 //              catch {
 //                  print("Contents could not be loaded")

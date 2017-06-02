@@ -10,8 +10,7 @@ import AVFoundation
 
 var entrySpeech: Bool = false
 let UTTERANCE_RATE = AVSpeechUtteranceDefaultSpeechRate
-let UTTERANCE_VOICE = AVSpeechSynthesisVoice(language: "en-IE")
-
+var UTTERANCE_VOICE: AVSpeechSynthesisVoice = AVSpeechSynthesisVoice(language: "en-us")!
 
 func speak(_ message: String){
   if !speechEnabled{
@@ -26,7 +25,6 @@ func speak(_ message: String){
   speechUtterance.rate = UTTERANCE_RATE
   speechUtterance.voice = UTTERANCE_VOICE
   synthesizer.speak(speechUtterance)
-  print(AVSpeechSynthesisVoice.speechVoices())
 }
 
 func speakWait(_ message: String){
@@ -48,9 +46,7 @@ extension RootViewController{
   func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer,
                          didFinish utterance: AVSpeechUtterance)
   {
-    if entrySpeech {
-      entrySpeech = false
-    }
+
   }
 }
 

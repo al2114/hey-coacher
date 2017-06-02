@@ -4,6 +4,7 @@ import Foundation
 class MenuItem{
   var desc: String
   var id: String
+  
   init(_ desc: String, _ id: String){
     self.desc = desc
     self.id = id
@@ -20,14 +21,14 @@ class MenuList {
   var items = [MenuItem]()
   
   
-  init(_ items: [MenuItem], message: String = ""){
+  init(_ items: [MenuItem], message: String = "", idx: Int = 0){
     self.items = items
     self.count = items.count
+    self.idx = idx
 
-    if !message.isEmpty {
+    if message != "" {
       speak(message)
       entrySpeech = true
-      speakWait(currentItem)
     }
     else {
       speak(currentItem)

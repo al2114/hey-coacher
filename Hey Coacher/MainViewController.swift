@@ -10,6 +10,11 @@ import UIKit
 
 var welcome: Bool = true
 
+var name: String = "Andrew"
+
+var prevIdx: Int = 0
+var goBack: Bool = false
+
 class MainViewController: CustomUIViewController {
   @IBOutlet weak var mainLabel: UILabel!
   @IBOutlet weak var prevLabel: UILabel!
@@ -25,7 +30,6 @@ class MainViewController: CustomUIViewController {
                         MenuItem("Connect Devices", "bluetooth"),
                         MenuItem("Settings", "settings"),
                         MenuItem("Help","help")]
-    let name = "Andrew"
     var entryMessage: String = ""
     
     if welcome {
@@ -33,8 +37,16 @@ class MainViewController: CustomUIViewController {
       welcome = false
     }
 
-    menu = MenuList(mainItemList, message: entryMessage) 	
-
+    if goBack {
+      menu = MenuList(mainItemList, message: entryMessage, idx: prevIdx)
+      goBack = false
+    } else {
+      if !welcome {
+        entryMessage = "Main menu"
+      }
+      menu = MenuList(mainItemList, message: entryMessage)
+    }
+    
     updateLabels()
     
   }
@@ -80,10 +92,10 @@ class MainViewController: CustomUIViewController {
     let currentItemId: String = (menu?.currentId())!
     
     if currentItemId == "profile"{
-      delegate?.transitionTo(viewId: "profileViewController")
+      delegate?.transitionTo(viewId: "profileViewController", options: "")
     }
     else if currentItemId == "exercise"{
-      delegate?.transitionTo(viewId: "exerciseViewController")
+      delegate?.transitionTo(viewId: "exerciseViewController", options: "")
     }
     else if currentItemId == "bluetooth"{
       print("transition bluetooth")

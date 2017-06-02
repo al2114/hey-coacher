@@ -28,12 +28,7 @@ class RootViewController: UIViewController,
   weak var currentViewController: CustomUIViewController?
   
   var openEarsEventsObserver = OEEventsObserver()
-  
-  let words = [ "hey coacher",
-                "begin session",
-                "enable",
-                "disable",
-                "check readings"]
+
   
   override func viewDidLoad() {
     

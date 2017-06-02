@@ -28,6 +28,7 @@ class SessionViewController: CustomUIViewController {
   
   var menu: MenuList?
   
+  var backConfirm: Bool = false
   
   
   override func viewDidLoad() {
@@ -48,18 +49,27 @@ class SessionViewController: CustomUIViewController {
   }
   
   override func handleSwipeLeft(){
+    backConfirm = false
     menu?.iterNext()
     self.updateLabels()
   }
   override func handleSwipeRight(){
+    backConfirm = false
     menu?.iterPrevious()
     self.updateLabels()
   }
   override func handleTapLeft(){
     print("Left tap")
-    delegate?.transitionTo(viewId: "exerciseViewController")
+    if backConfirm {
+      delegate?.transitionTo(viewId: "mainViewController", options: "")
+    }
+    else {
+      speak("Press back again to end session")
+      backConfirm = true
+    }
   }
   override func handleTapRight(){
+    backConfirm = false
     print("Right tap")
     let currentItemId: String = (menu?.currentId())!
     if currentItemId == "analyze"{

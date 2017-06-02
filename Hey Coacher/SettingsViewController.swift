@@ -40,13 +40,13 @@ class SettingsViewController: CustomUIViewController {
         self.updateLabels()
     }
     override func handleTapLeft(){
-        delegate?.transitionTo(viewId: "mainViewController")
+        delegate?.transitionTo(viewId: "mainViewController", options: "")
     }
     override func handleTapRight(){
         let currentItemId: String = (menu?.currentId())!
         
         if currentItemId == "connectremote"{
-            delegate?.transitionTo(viewId: "connectRemoteViewController")
+            delegate?.transitionTo(viewId: "connectRemoteViewController", options: "")
         }
     
     }

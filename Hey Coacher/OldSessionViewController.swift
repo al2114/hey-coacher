@@ -78,7 +78,7 @@ class OldSessionViewController: CustomUIViewController {
                 let summarydataArr = summarydata.components(separatedBy: " ")
                 if(summarydataArr[4] == "Session" && summarydataArr[5] == "Ended"){
                     print ("Session Ended")
-                    delegate?.transitionTo(viewId: "mainViewController")
+                    delegate?.transitionTo(viewId: "mainViewController", options: "")
                 }
             }
             catch {

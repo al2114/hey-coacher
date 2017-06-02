@@ -1,3 +1,9 @@
+import AVFoundation
+
+let beginSoundID: SystemSoundID = 1117
+let endSoundID: SystemSoundID = 1118
+var userSpeaking: Bool = false
+var processSpeech: Bool = false
 
 
 extension RootViewController {
@@ -6,11 +12,25 @@ extension RootViewController {
   
   func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) { // Something was heard
     //    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
-    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
-    if words.contains(hypothesis) {
-      print("Detected word: \"\(hypothesis!)\"")
+//    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
+//    if words.contains(hypothesis) {
+////      print("Detected word: \"\(hypothesis!)\"")
+//    }
+    if hypothesis!.range(of:"hey coach") != nil {
+      print("Voice command activated")
+      AudioServicesPlaySystemSound(beginSoundID)
+      userSpeaking = true
+      return
     }
-    
+    if processSpeech {
+      for word in words {
+        if hypothesis!.range(of:word) != nil {
+          print("User called for: \(word)")
+          voiceCommand(word)
+        }
+      }
+      processSpeech = false
+    }
   }
   
   // An optional delegate method of OEEventsObserver which informs that the Pocketsphinx recognition loop has entered its actual loop.
@@ -26,12 +46,19 @@ extension RootViewController {
   
   // An optional delegate method of OEEventsObserver which informs that Pocketsphinx detected speech and is starting to process it.
   func pocketsphinxDidDetectSpeech() {
+//    print("Detected speech")
     //    print("Local callback: Pocketsphinx has detected speech.") // Log it.
   }
   
   // An optional delegate method of OEEventsObserver which informs that Pocketsphinx detected a second of silence, indicating the end of an utterance.
   func pocketsphinxDidDetectFinishedSpeech() {
     //    print("Local callback: Pocketsphinx has detected a second of silence, concluding an utterance.") // Log it.
+//    print("Finished speaking")
+    if userSpeaking {
+      AudioServicesPlaySystemSound(endSoundID)
+      userSpeaking = false
+      processSpeech = true
+    }
   }
   
   // An optional delegate method of OEEventsObserver which informs that Pocketsphinx has exited its recognition loop, most

@@ -30,6 +30,7 @@
 		CB60E0D31EE0A46B005D4AB0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D21EE0A46B005D4AB0 /* ProfileViewController.swift */; };
 		CB60E0D61EE0AE81005D4AB0 /* SpeechEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */; };
 		CB60E0D81EE0E092005D4AB0 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */; };
+		CB60E0DB1EE17782005D4AB0 /* VoiceControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */; };
 		CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2AB941EE0682800974383 /* AppDelegate.swift */; };
 		CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB981EE0682800974383 /* Main.storyboard */; };
 		CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB9B1EE0682800974383 /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		CB60E0D21EE0A46B005D4AB0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechEngine.swift; sourceTree = "<group>"; };
 		CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceControl.swift; sourceTree = "<group>"; };
 		CBD2AB911EE0682700974383 /* Hey Coacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Coacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD2AB941EE0682800974383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD2AB991EE0682800974383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				CB189ADA1EE068B800910881 /* RootViewController.swift */,
 				CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */,
 				CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */,
+				CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				CB189AE11EE068B800910881 /* RootViewController.swift in Sources */,
 				CB60E0D81EE0E092005D4AB0 /* SessionViewController.swift in Sources */,
 				CB189ADC1EE068B800910881 /* CustomUIViewControllerClass.swift in Sources */,
+				CB60E0DB1EE17782005D4AB0 /* VoiceControl.swift in Sources */,
 				CB60E0D31EE0A46B005D4AB0 /* ProfileViewController.swift in Sources */,
 				CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */,
 				CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */,

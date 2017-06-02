@@ -18,10 +18,10 @@ struct User{
 }
 
 var userList: [User] = [
-  User(name: "Mark", id: "1245"),
-  User(name: "Michael", id: "1245"),
-  User(name: "Andy", id: "1245"),
-  User(name: "Prakhar", id: "1245")
+  User(name: "Mark", id: "1"),
+  User(name: "Michael", id: "3"),
+  User(name: "Andy", id: "7"),
+  User(name: "Prakhar", id: "29")
 ]
 
 class ProfileViewController: CustomUIViewController {
@@ -40,7 +40,7 @@ class ProfileViewController: CustomUIViewController {
     var profileList: [MenuItem] = []
     
     for user in userList {
-      profileList += [MenuItem(user.name, "uid-"+user.id)]
+      profileList += [MenuItem(user.name, user.id)]
     }
 
     profileList += [MenuItem("Create new profile", "newprofile")]
@@ -82,7 +82,9 @@ class ProfileViewController: CustomUIViewController {
     }
     
     print("Left tap")
-    delegate?.transitionTo(viewId: "mainViewController")
+    goBack = true
+    prevIdx = 0
+    delegate?.transitionTo(viewId: "mainViewController", options: "")
   }
   override func handleTapRight(){
     if entrySpeech {
@@ -91,6 +93,21 @@ class ProfileViewController: CustomUIViewController {
       return
     }
     let currentItemId: String = (menu?.currentId())!
+    
+    if currentItemId == "newprofile" {
+      print("new profile")
+    }
+    else {
+      for user in userList {
+        if user.id == currentItemId{
+          name = user.name
+          speak("Selected \(user.name)")
+          welcome = true
+        }
+      }
+    }
+    
+    
   }
   
   func updateLabels(){
