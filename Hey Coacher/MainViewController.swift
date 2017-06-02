@@ -8,6 +8,8 @@
 
 import UIKit
 
+var welcome: Bool = true
+
 class MainViewController: CustomUIViewController {
   @IBOutlet weak var mainLabel: UILabel!
   @IBOutlet weak var prevLabel: UILabel!
@@ -24,11 +26,15 @@ class MainViewController: CustomUIViewController {
                         MenuItem("Settings", "settings"),
                         MenuItem("Help","help")]
     let name = "Andrew"
-    let entryMessage = "Hello, \(name)!"
+    var entryMessage: String = ""
     
-    
-    
-    menu = MenuList(mainItemList)
+    if welcome {
+      entryMessage = "Hello, \(name)!"
+      welcome = false
+    }
+
+    menu = MenuList(mainItemList, message: entryMessage) 	
+
     updateLabels()
     
   }

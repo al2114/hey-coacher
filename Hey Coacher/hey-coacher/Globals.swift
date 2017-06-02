@@ -8,6 +8,8 @@
 
 import Foundation
 
+var speechEnabled: Bool = true
+
 import UIKit
 
 // Parity based on operand mod

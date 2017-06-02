@@ -26,9 +26,10 @@
 		CB60E0961EE08B18005D4AB0 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB60E0931EE08B18005D4AB0 /* OpenEars.framework */; };
 		CB60E0971EE08B18005D4AB0 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB60E0941EE08B18005D4AB0 /* Slt.framework */; };
 		CB60E0CD1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */; };
-		CB60E0D11EE0A2D4005D4AB0 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D01EE0A2D4005D4AB0 /* SessionViewController.swift */; };
+		CB60E0D11EE0A2D4005D4AB0 /* OldSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D01EE0A2D4005D4AB0 /* OldSessionViewController.swift */; };
 		CB60E0D31EE0A46B005D4AB0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D21EE0A46B005D4AB0 /* ProfileViewController.swift */; };
 		CB60E0D61EE0AE81005D4AB0 /* SpeechEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */; };
+		CB60E0D81EE0E092005D4AB0 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */; };
 		CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2AB941EE0682800974383 /* AppDelegate.swift */; };
 		CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB981EE0682800974383 /* Main.storyboard */; };
 		CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB9B1EE0682800974383 /* Assets.xcassets */; };
@@ -56,9 +57,10 @@
 		CB60E0941EE08B18005D4AB0 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		CB60E0CB1EE091B1005D4AB0 /* OpenEarsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenEarsHeader.h; sourceTree = "<group>"; };
 		CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecognitionOffline.swift; sourceTree = "<group>"; };
-		CB60E0D01EE0A2D4005D4AB0 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		CB60E0D01EE0A2D4005D4AB0 /* OldSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldSessionViewController.swift; sourceTree = "<group>"; };
 		CB60E0D21EE0A46B005D4AB0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechEngine.swift; sourceTree = "<group>"; };
+		CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		CBD2AB911EE0682700974383 /* Hey Coacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Coacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD2AB941EE0682800974383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD2AB991EE0682800974383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,16 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		CB60E0D91EE0E098005D4AB0 /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */,
+				CB60E0D01EE0A2D4005D4AB0 /* OldSessionViewController.swift */,
+				CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */,
+			);
+			name = Exercise;
+			sourceTree = "<group>";
+		};
 		CBD2AB881EE0682700974383 = {
 			isa = PBXGroup;
 			children = (
@@ -178,8 +190,7 @@
 				CB189AE31EE0695700910881 /* Global */,
 				CB189AE21EE0693B00910881 /* Root */,
 				CB189AD01EE068A500910881 /* MainViewController.swift */,
-				CB60E0D01EE0A2D4005D4AB0 /* SessionViewController.swift */,
-				CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */,
+				CB60E0D91EE0E098005D4AB0 /* Exercise */,
 				CB60E0D41EE0A46F005D4AB0 /* Profile */,
 				CBD2AB981EE0682800974383 /* Main.storyboard */,
 				CBD2AB9B1EE0682800974383 /* Assets.xcassets */,
@@ -266,6 +277,7 @@
 				CB189AD21EE068A500910881 /* MainViewController.swift in Sources */,
 				CB189ADE1EE068B800910881 /* Globals.swift in Sources */,
 				CB189AE11EE068B800910881 /* RootViewController.swift in Sources */,
+				CB60E0D81EE0E092005D4AB0 /* SessionViewController.swift in Sources */,
 				CB189ADC1EE068B800910881 /* CustomUIViewControllerClass.swift in Sources */,
 				CB60E0D31EE0A46B005D4AB0 /* ProfileViewController.swift in Sources */,
 				CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */,
@@ -275,7 +287,7 @@
 				CB60E0CD1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift in Sources */,
 				CB189ADD1EE068B800910881 /* GestureHandler.swift in Sources */,
 				CB60E0D61EE0AE81005D4AB0 /* SpeechEngine.swift in Sources */,
-				CB60E0D11EE0A2D4005D4AB0 /* SessionViewController.swift in Sources */,
+				CB60E0D11EE0A2D4005D4AB0 /* OldSessionViewController.swift in Sources */,
 				CB189ADF1EE068B800910881 /* MenuList.swift in Sources */,
 				CB189AE01EE068B800910881 /* DelegateFunctions.swift in Sources */,
 				CB60E0831EE072FB005D4AB0 /* ExerciseViewController.swift in Sources */,

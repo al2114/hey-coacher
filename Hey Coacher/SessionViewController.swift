@@ -1,96 +1,77 @@
-//  sessionViewController.swift
+//
+//  ExerciseViewController.swift
 //  Hey Coacher
 //
-//  Created by Prakhar Lunia on 6/1/17.
+//  Created by Andrew Li on 01/06/2017.
 //  Copyright © 2017 imperial-smartbike. All rights reserved.
 //
 
-import UIKit
-import AVFoundation
+
+var heartrate: Int = 93
+var cadence: Float = 23.4
+var pace: TimeInterval = TimeInterval(438)
+var distance: Float = 1.4
+var interval: TimeInterval = TimeInterval(140)
+
+func timeToString(_ time:TimeInterval) -> String {
+  let minutes = Int(time) / 60
+  let seconds = Int(time) % 60
+  return "\(String(minutes)) minutes and \(String(seconds)) seconds"
+}
 
 class SessionViewController: CustomUIViewController {
-    @IBOutlet weak var displayTextLabel: UILabel!
+  
+  @IBOutlet weak var mainLabel: UILabel!
+  @IBOutlet weak var prevLabel: UILabel!
+  @IBOutlet weak var nextLabel: UILabel!
+  @IBOutlet weak var beginsessionLabel: UILabel!
+  
+  var menu: MenuList?
+  
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let exerciseItemList = [MenuItem("Heartrate: \(heartrate) BPM", "reading-heartrate"),
+                            MenuItem("Cadence: \(cadence) rounds per minute", "reading-cadence"),
+                            MenuItem("Split pace: \(timeToString(pace))", "reading-pace"),
+                            MenuItem("Distance: \(distance) kilometers", "reading-distance"),
+                            MenuItem("Time: \(timeToString(interval))", "reading-time"),
+                            MenuItem("Analyze current performance", "analyze")]
+    
+    
+    menu = MenuList(exerciseItemList, message: "Session started")
+    updateLabels()
+    
+    // Do any additional setup after loading the view.
+  }
+  
+  override func handleSwipeLeft(){
+    menu?.iterNext()
+    self.updateLabels()
+  }
+  override func handleSwipeRight(){
+    menu?.iterPrevious()
+    self.updateLabels()
+  }
+  override func handleTapLeft(){
+    print("Left tap")
+    delegate?.transitionTo(viewId: "exerciseViewController")
+  }
+  override func handleTapRight(){
+    print("Right tap")
+    let currentItemId: String = (menu?.currentId())!
+    if currentItemId == "analyze"{
+      speak("This is the backend currently analyzing your performance. Keep it going!")
+    } else {
+      speak((menu?.currentItem)!)
+    }
+  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func handleSwipeLeft(){
-        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=value&reading=Pace&sid=\(sessionID)") {
-            do {
-                var contents = try String(contentsOf: url, encoding: .utf8)
-                let summarydata = contents.format()
-                let summarydataArr = summarydata.components(separatedBy: " ")
-                
-                let pacevalue = summarydataArr[5]
-                
-                let utterace = AVSpeechUtterance(string: "Your pace is " + pacevalue + " minutes per km")
-                utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
-                utterace.rate = 0.45
-                
-                let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterace)
-                displayTextLabel.text = "Your pace is " + pacevalue + " min/km"
-            }
-            catch {
-                print("Contents could not be loaded")
-            }
-        }
-        else {
-            print("The URL was bad")
-        }
-    }
-    
-    override func handleSwipeRight(){
-        let utterace = AVSpeechUtterance(string: "Your cadence is  rpm")
-        utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterace.rate = 0.45
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterace)
-        displayTextLabel.text = "Your cadence is  rpm"
-    }
-    
-    override func handleTapLeft(){
-        let utterace = AVSpeechUtterance(string: "Your heart rate is  bpm")
-        utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterace.rate = 0.45
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterace)
-        displayTextLabel.text = "Your heart rate is  bpm"
-    }
-    
-    override func handleTapRight(){
-        let utterace = AVSpeechUtterance(string: "Your distance travelled is  m")
-        utterace.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterace.rate = 0.45
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterace)
-        displayTextLabel.text = "Your distance travelled is  m"
-    }
-    
-    @IBAction func endSessionButton(_ sender: Any) {
-        if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=endsession&sid=\(sessionID)") {
-            do {
-                var contents = try String(contentsOf: url, encoding: .utf8)
-                let summarydata = contents.format()
-                let summarydataArr = summarydata.components(separatedBy: " ")
-                if(summarydataArr[4] == "Session" && summarydataArr[5] == "Ended"){
-                    print ("Session Ended")
-                    delegate?.transitionTo(viewId: "mainViewController")
-                }
-            }
-            catch {
-                print("Contents could not be loaded")
-            }
-        }
-        else {
-            print("The URL was bad")
-        }
-    }
+  func updateLabels(){
+    mainLabel.text = menu?.currentItem;
+    prevLabel.text = menu?.previousItem
+    nextLabel.text = menu?.nextItem;
+  }
 }

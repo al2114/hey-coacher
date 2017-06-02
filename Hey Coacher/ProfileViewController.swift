@@ -18,8 +18,10 @@ struct User{
 }
 
 var userList: [User] = [
-  User(name: "John", id: "1239"),
-  User(name: "Mark", id: "1245")
+  User(name: "Mark", id: "1245"),
+  User(name: "Michael", id: "1245"),
+  User(name: "Andy", id: "1245"),
+  User(name: "Prakhar", id: "1245")
 ]
 
 class ProfileViewController: CustomUIViewController {

@@ -24,13 +24,10 @@ class ExerciseList {
     
     func iterNext() {
         idx = mod(idx+1,count)
+        speak(currentExercise)
     }
     
-    func iterPrevious() {
-        idx = mod(idx-1,count)
-    }
-    
-    func currentExercise() -> String {
+    var currentExercise: String {
         return exercises[idx]
     }
     
@@ -39,7 +36,8 @@ class ExerciseList {
 
 var exercises: ExerciseList = ExerciseList([
   "cycling",
-  "walking"
+  "walking",
+  "jogging"
   ])
 
 class ExerciseViewController: CustomUIViewController {
@@ -51,7 +49,7 @@ class ExerciseViewController: CustomUIViewController {
   
   var menu: MenuList?
   
-  var exercise: String = exercises.currentExercise()
+  var exercise: String = exercises.currentExercise
     
   
   override func viewDidLoad() {
@@ -60,7 +58,7 @@ class ExerciseViewController: CustomUIViewController {
       let exerciseItemList = [MenuItem("Start \(exercise) session", "startsession"),
                           MenuItem("Change exercise, \(exercise) is currently selected", "selectexercise"),
                           MenuItem("Create new exercise profile", "createexercise"),
-                          MenuItem("Analyze session", "analyze")]
+                          MenuItem("Analyze overall performance", "analyze")]
   
       
       menu = MenuList(exerciseItemList)
@@ -85,26 +83,34 @@ class ExerciseViewController: CustomUIViewController {
       let currentItemId: String = (menu?.currentId())!
       
       if currentItemId == "startsession"{
-          print("Start Session")
-          if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=startsession&id=\(userID)&class=\(exercise)") {
-              do {
-                  var contents = try String(contentsOf: url, encoding: .utf8)
-                  let summarydata = contents.format()
-                  let summarydataArr = summarydata.components(separatedBy: " ")
-                  
-                  sessionID = Int(summarydataArr[4])!
+//          print("Start Session")
+//          if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=startsession&id=\(userID)&class=\(exercise)") {
+//              do {
+//                  var contents = try String(contentsOf: url, encoding: .utf8)
+//                  let summarydata = contents.format()
+//                  let summarydataArr = summarydata.components(separatedBy: " ")
+//                  
+//                  sessionID = Int(summarydataArr[4])!
                   delegate?.transitionTo(viewId: "sessionViewController")
-              }
-              catch {
-                  print("Contents could not be loaded")
-              }
-          }
-          else {
-              print("The URL was bad")
-          }
-          
+//              }
+//              catch {
+//                  print("Contents could not be loaded")
+//              }
+//          }
+//          else {
+//              print("The URL was bad")
+//          }
+        
       }
       else if currentItemId == "selectexercise"{
+          exercises.iterNext()
+          exercise = exercises.currentExercise
+          print(exercise)
+          menu?.updateItemDesc(itemId: "startsession", newDesc: "Start \(exercise) session")
+          menu?.updateItemDesc(itemId: "selectexercise", newDesc: "Change exercise, \(exercise) is currently selected")
+          updateLabels()
+        
+        
           //print("Select Session")
           //delegate?.transitionTo(viewId: "selectExerciseViewController")
       }
@@ -118,7 +124,7 @@ class ExerciseViewController: CustomUIViewController {
       }
       
   }
-  
+
   func updateLabels(){
       mainLabel.text = menu?.currentItem;
       prevLabel.text = menu?.previousItem

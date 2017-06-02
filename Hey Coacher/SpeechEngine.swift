@@ -9,24 +9,35 @@
 import AVFoundation
 
 var entrySpeech: Bool = false
+let UTTERANCE_RATE = AVSpeechUtteranceDefaultSpeechRate
+let UTTERANCE_VOICE = AVSpeechSynthesisVoice(language: "en-IE")
 
 
 func speak(_ message: String){
+  if !speechEnabled{
+    return
+  }
+  
   if synthesizer.isSpeaking{
     synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
   }
   let speechText: String = message
   let speechUtterance = AVSpeechUtterance(string: speechText)
-  speechUtterance.rate = AVSpeechUtteranceDefaultSpeechRate
-  speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+  speechUtterance.rate = UTTERANCE_RATE
+  speechUtterance.voice = UTTERANCE_VOICE
   synthesizer.speak(speechUtterance)
+  print(AVSpeechSynthesisVoice.speechVoices())
 }
 
 func speakWait(_ message: String){
+  if !speechEnabled{
+    return
+  }
+  
   let speechText: String = message
   let speechUtterance = AVSpeechUtterance(string: speechText)
-  speechUtterance.rate = AVSpeechUtteranceDefaultSpeechRate
-  speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-us")
+  speechUtterance.rate = UTTERANCE_RATE
+  speechUtterance.voice = UTTERANCE_VOICE
   synthesizer.speak(speechUtterance)
 }
 

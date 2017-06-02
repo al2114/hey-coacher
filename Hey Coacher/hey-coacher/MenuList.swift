@@ -1,12 +1,16 @@
 
 import Foundation
 
-struct MenuItem{
+class MenuItem{
   var desc: String
   var id: String
   init(_ desc: String, _ id: String){
     self.desc = desc
     self.id = id
+  }
+  
+  func modifyDesc(_ newDesc: String){
+    self.desc = newDesc
   }
 }
 
@@ -54,6 +58,14 @@ class MenuList {
   
   func currentId() -> String {
     return items[idx].id
+  }
+  
+  func updateItemDesc(itemId: String, newDesc: String){
+    for item in items{
+      if item.id == itemId {
+        item.modifyDesc(newDesc)
+      }
+    }
   }
   
   
