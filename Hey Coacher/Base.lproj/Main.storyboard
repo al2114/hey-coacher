@@ -248,7 +248,7 @@
         <!--Settings View Controller-->
         <scene sceneID="30O-AP-6ni">
             <objects>
-                <viewController storyboardIdentifier="settingViewController" id="0l6-yR-U6E" customClass="SettingsViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsViewController" id="0l6-yR-U6E" customClass="SettingsViewController" customModule="Hey_Coacher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Go3-Gr-NTg"/>
                         <viewControllerLayoutGuide type="bottom" id="zOx-9k-KNa"/>
@@ -257,29 +257,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AY-gM-KjJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AY-gM-KjJ">
                                 <rect key="frame" x="16" y="315" width="343" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Previous Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQB-FK-6ym">
-                                <rect key="frame" x="16" y="315" width="343" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQB-FK-6ym">
+                                <rect key="frame" x="16" y="215.5" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fws-x9-Bqp">
-                                <rect key="frame" x="16" y="315" width="343" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.10000000149011612" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fws-x9-Bqp">
+                                <rect key="frame" x="16" y="415.5" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.4497493783061246" green="0.37227174792603568" blue="0.84490507841110229" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1AY-gM-KjJ" firstAttribute="centerY" secondItem="s6g-aK-BO3" secondAttribute="centerY" id="CJi-Lm-48L"/>
+                            <constraint firstItem="DQB-FK-6ym" firstAttribute="centerY" secondItem="s6g-aK-BO3" secondAttribute="centerY" constant="-100" id="EI2-Rf-vqc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fws-x9-Bqp" secondAttribute="leading" id="RDR-EX-Dj9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DQB-FK-6ym" secondAttribute="trailing" id="WAY-PZ-3vh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="1AY-gM-KjJ" secondAttribute="leading" id="ivC-XK-rPC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fws-x9-Bqp" secondAttribute="trailing" id="nWn-Wf-0dy"/>
+                            <constraint firstItem="fws-x9-Bqp" firstAttribute="centerY" secondItem="s6g-aK-BO3" secondAttribute="centerY" constant="100" id="oNV-3M-Iad"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1AY-gM-KjJ" secondAttribute="trailing" id="rtQ-Ve-2u1"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="DQB-FK-6ym" secondAttribute="leading" id="ymx-cb-Crd"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mainLabel" destination="1AY-gM-KjJ" id="m6l-xD-ih0"/>

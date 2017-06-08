@@ -9,8 +9,9 @@
 import AVFoundation
 
 var entrySpeech: Bool = false
-let UTTERANCE_RATE = AVSpeechUtteranceDefaultSpeechRate
-var UTTERANCE_VOICE: AVSpeechSynthesisVoice = AVSpeechSynthesisVoice(language: "en-us")!
+//let utteranceRate = AVSpeechUtteranceDefaultSpeechRate
+var utteranceRate: Float = AVSpeechUtteranceDefaultSpeechRate
+var utteranceVoice: AVSpeechSynthesisVoice = AVSpeechSynthesisVoice(language: "en-us")!
 
 func speak(_ message: String){
   if !speechEnabled{
@@ -22,8 +23,8 @@ func speak(_ message: String){
   }
   let speechText: String = message
   let speechUtterance = AVSpeechUtterance(string: speechText)
-  speechUtterance.rate = UTTERANCE_RATE
-  speechUtterance.voice = UTTERANCE_VOICE
+  speechUtterance.rate = utteranceRate
+  speechUtterance.voice = utteranceVoice
   synthesizer.speak(speechUtterance)
 }
 
@@ -34,8 +35,8 @@ func speakWait(_ message: String){
   
   let speechText: String = message
   let speechUtterance = AVSpeechUtterance(string: speechText)
-  speechUtterance.rate = UTTERANCE_RATE
-  speechUtterance.voice = UTTERANCE_VOICE
+  speechUtterance.rate = utteranceRate
+  speechUtterance.voice = utteranceVoice
   synthesizer.speak(speechUtterance)
 }
 

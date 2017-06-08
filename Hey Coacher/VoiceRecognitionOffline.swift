@@ -8,6 +8,7 @@ var processSpeech: Bool = false
 
 extension RootViewController {
   
+
   // Methods for Openears
   
   func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) { // Something was heard
@@ -118,7 +119,18 @@ extension RootViewController {
   /** The user prompt to get mic permissions, or a check of the mic permissions, has completed with a true or a false result  (will only be returned on iOS7 or later).*/
   
   func micPermissionCheckCompleted(withResult: Bool) {
-    print("Local callback: mic check completed.")
+
+    if !withResult {
+      print("Voice control not enabled because microphone permission not granted")
+    }
+    else {
+      
+      let lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModel(withRequestedName: OEname) // Convenience method to reference the path of a language model known to have been created successfully.
+      let dicPath = lmGenerator.pathToSuccessfullyGeneratedDictionary(withRequestedName: OEname) // Convenience method to reference the path of a dictionary known to have been created successfully.
+      
+      OEPocketsphinxController.sharedInstance().startListeningWithLanguageModel(atPath: lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: OEAcousticModel.path(toModel: "AcousticModelEnglish"), languageModelIsJSGF: false)
+    }
+  
   }
 
 }

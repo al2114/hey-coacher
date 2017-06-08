@@ -8,6 +8,37 @@
 
 import UIKit
 
+var utteranceRates: CycleList = CycleList([
+  "Normal",
+  "Fast",
+  "Very fast",
+  "Maximum"
+  ])
+
+var voices: CycleList = CycleList ([
+  "en-US",
+  "en-GB",
+  "en-AU",
+  "en-IE"
+  ])
+var utteranceRateId: String = "Normal"
+
+func languageFromCode(_ lang: String) -> String {
+  if lang == "en-US" {
+    return "English (American)"
+  }
+  else if lang == "en-GB" {
+    return "English (British)"
+  }
+  else if lang == "en-AU" {
+    return "English (Australian)"
+  }
+  else if lang == "en-IE"{
+    return "English (Irish)"
+  }
+  return ""
+}
+
 class SettingsViewController: CustomUIViewController {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var prevLabel: UILabel!
@@ -17,8 +48,9 @@ class SettingsViewController: CustomUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let settingsItemList = [MenuItem("Connect Remote", "connectremote"),
-                            MenuItem("Scan for Sensors", "scansensor")]
+      
+      let settingsItemList = [MenuItem("Voice: \(languageFromCode(utteranceVoice.language))", "voice"),
+                            MenuItem("Utterance rate: \(utteranceRateId)", "utterancerate")]
         
         menu = MenuList(settingsItemList)
         updateLabels()
@@ -40,21 +72,50 @@ class SettingsViewController: CustomUIViewController {
         self.updateLabels()
     }
     override func handleTapLeft(){
-        delegate?.transitionTo(viewId: "mainViewController", options: "")
+      goBack = true
+      prevIdx = 3
+      delegate?.transitionTo(viewId: "mainViewController", options: "")
     }
     override func handleTapRight(){
-        let currentItemId: String = (menu?.currentId())!
-        
-        if currentItemId == "connectremote"{
-            delegate?.transitionTo(viewId: "connectRemoteViewController", options: "")
-        }
+      let currentItemId: String = (menu?.currentId())!
+      
+      if currentItemId == "utterancerate" {
+        utteranceRates.iterNext()
+        utteranceRateId = utteranceRates.currentItem
+        updateUtteranceRate(utteranceRateId)
+        menu?.updateItemDesc(itemId: "utterancerate", newDesc: "Utterance rate: \(utteranceRateId)")
+        updateLabels()
+        speak(utteranceRateId)
+      }
+      else if currentItemId == "voice"{
+        voices.iterNext()
+        utteranceVoice = AVSpeechSynthesisVoice(language: voices.currentItem)!
+        menu?.updateItemDesc(itemId: "voice", newDesc: "Voice: \(languageFromCode(voices.currentItem))")
+        updateLabels()
+        speak((languageFromCode(voices.currentItem)))
+      }
     
     }
-    
-    func updateLabels(){
-        mainLabel.text = menu?.currentItem;
-        prevLabel.text = menu?.previousItem
-        nextLabel.text = menu?.nextItem;
+  
+  func updateUtteranceRate(_ id: String ){
+    if id == "Normal"{
+      utteranceRate = AVSpeechUtteranceDefaultSpeechRate
     }
+    else if id == "Fast" {
+      utteranceRate = AVSpeechUtteranceDefaultSpeechRate*1.3
+    }
+    else if id == "Very fast" {
+      utteranceRate = AVSpeechUtteranceDefaultSpeechRate*1.7
+    }
+    else if id == "Maximum" {
+      utteranceRate = AVSpeechUtteranceMaximumSpeechRate
+    }
+  }
+  
+  func updateLabels(){
+      mainLabel.text = menu?.currentItem;
+      prevLabel.text = menu?.previousItem
+      nextLabel.text = menu?.nextItem;
+  }
 
 }

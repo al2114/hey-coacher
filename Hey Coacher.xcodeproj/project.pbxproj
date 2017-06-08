@@ -98,10 +98,10 @@
 		CB189AE21EE0693B00910881 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				CB189ADA1EE068B800910881 /* RootViewController.swift */,
 				CB189AD61EE068B800910881 /* GestureHandler.swift */,
 				CB189AD91EE068B800910881 /* DelegateFunctions.swift */,
 				CB189AD41EE068B800910881 /* ContainerViewController.swift */,
-				CB189ADA1EE068B800910881 /* RootViewController.swift */,
 				CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */,
 				CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */,
 				CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */,
@@ -235,6 +235,7 @@
 				TargetAttributes = {
 					CBD2AB901EE0682700974383 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CB6DHSUPD9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -419,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEPLOYMENT_POSTPROCESSING = NO;
+				DEVELOPMENT_TEAM = CB6DHSUPD9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
@@ -437,6 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEPLOYMENT_POSTPROCESSING = NO;
+				DEVELOPMENT_TEAM = CB6DHSUPD9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",

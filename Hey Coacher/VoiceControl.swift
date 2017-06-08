@@ -32,11 +32,11 @@ extension RootViewController {
       speak(readings)
     }
     else if cmd == "british accent"{
-      UTTERANCE_VOICE = AVSpeechSynthesisVoice(language: "en-GB")!
+      utteranceVoice = AVSpeechSynthesisVoice(language: "en-GB")!
       speak("Ok, done")
     }
     else if cmd == "irish accent"{
-      UTTERANCE_VOICE = AVSpeechSynthesisVoice(language: "en-IE")!
+      utteranceVoice = AVSpeechSynthesisVoice(language: "en-IE")!
       speak("Ok, done")
     }
   }

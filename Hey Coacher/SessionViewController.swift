@@ -10,14 +10,9 @@
 var heartrate: Int = 93
 var cadence: Float = 23.4
 var pace: TimeInterval = TimeInterval(438)
-var distance: Float = 1.4
+var distance: Float = 0.7
 var interval: TimeInterval = TimeInterval(140)
 
-func timeToString(_ time:TimeInterval) -> String {
-  let minutes = Int(time) / 60
-  let seconds = Int(time) % 60
-  return "\(String(minutes)) minutes and \(String(seconds)) seconds"
-}
 
 class SessionViewController: CustomUIViewController {
   
@@ -34,11 +29,11 @@ class SessionViewController: CustomUIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let exerciseItemList = [MenuItem("Heartrate: \(heartrate) BPM", "reading-heartrate"),
+    let exerciseItemList = [MenuItem("Time: \(timeToString(interval))", "reading-time"),
+                            MenuItem("Distance: \(distance) kilometers", "reading-distance"),
+                            MenuItem("Heartrate: \(heartrate) BPM", "reading-heartrate"),
                             MenuItem("Cadence: \(cadence) rounds per minute", "reading-cadence"),
                             MenuItem("Split pace: \(timeToString(pace))", "reading-pace"),
-                            MenuItem("Distance: \(distance) kilometers", "reading-distance"),
-                            MenuItem("Time: \(timeToString(interval))", "reading-time"),
                             MenuItem("Analyze current performance", "analyze")]
     
     

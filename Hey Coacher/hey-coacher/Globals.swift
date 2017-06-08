@@ -19,6 +19,13 @@ func mod(_ a: Int, _ n: Int) -> Int {
   return r >= 0 ? r : r + n
 }
 
+
+func timeToString(_ time:TimeInterval) -> String {
+  let minutes = Int(time) / 60
+  let seconds = Int(time) % 60
+  return "\(String(minutes)) minutes and \(String(seconds)) seconds"
+}
+
 extension String {
     func deleteSpaces() -> String {
         return components(separatedBy: .whitespaces).joined()

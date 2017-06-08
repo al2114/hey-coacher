@@ -30,19 +30,22 @@ class MainViewController: CustomUIViewController {
                         MenuItem("Connect Devices", "bluetooth"),
                         MenuItem("Settings", "settings"),
                         MenuItem("Help","help")]
-    var entryMessage: String = ""
-    
-    if welcome {
-      entryMessage = "Hello, \(name)!"
-      welcome = false
-    }
+    var entryMessage: String = "Main menu"
 
     if goBack {
+      if welcome {
+        entryMessage = "Hello, \(name)!"
+        welcome = false
+      }
+      else {
+        entryMessage = ""
+      }
       menu = MenuList(mainItemList, message: entryMessage, idx: prevIdx)
       goBack = false
     } else {
-      if !welcome {
-        entryMessage = "Main menu"
+      if welcome {
+        entryMessage = "Hello, \(name)!"
+        welcome = false
       }
       menu = MenuList(mainItemList, message: entryMessage)
     }
@@ -78,6 +81,7 @@ class MainViewController: CustomUIViewController {
     self.updateLabels()
   }
   override func handleTapLeft(){
+    speak("Main menu")
 //    delegate?.transitionTo(viewId: menu?.parent)
     
   }
@@ -98,10 +102,11 @@ class MainViewController: CustomUIViewController {
       delegate?.transitionTo(viewId: "exerciseViewController", options: "")
     }
     else if currentItemId == "bluetooth"{
+      speak("Scanning for bluetooth devices... ... No devices found")
       print("transition bluetooth")
     }
     else if currentItemId == "settings"{
-      print("transition setting")
+      delegate?.transitionTo(viewId: "settingsViewController", options: "")
     }
     else if currentItemId == "help"{
       print("transition help")

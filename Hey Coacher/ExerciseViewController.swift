@@ -10,31 +10,7 @@ import UIKit
 var userID: Int = 1
 var sessionID: Int = 0
 
-class ExerciseList {
-    var idx: Int = 0
-    var count: Int = 0
-    var exercises = [String]()
-    
-    
-    init(_ exercises: [String]){
-        self.exercises = exercises
-        self.count = exercises.count
-    }
-    
-    
-    func iterNext() {
-        idx = mod(idx+1,count)
-        speak(currentExercise)
-    }
-    
-    var currentExercise: String {
-        return exercises[idx]
-    }
-    
-    
-}
-
-var exercises: ExerciseList = ExerciseList([
+var exercises: CycleList = CycleList([
   "cycling",
   "walking",
   "jogging"
@@ -49,13 +25,13 @@ class ExerciseViewController: CustomUIViewController {
   
   var menu: MenuList?
   
-  var exercise: String = exercises.currentExercise
+  var exercise: String = exercises.currentItem
     
   
   override func viewDidLoad() {
       super.viewDidLoad()
 
-      let exerciseItemList = [MenuItem("Start \(exercise) session", "startsession"),
+      let exerciseItemList = [MenuItem("Begin \(exercise) session", "startsession"),
                           MenuItem("Change exercise, \(exercise) is currently selected", "selectexercise"),
                           MenuItem("Create new exercise profile", "createexercise"),
                           MenuItem("Analyze overall performance", "analyze")]
@@ -106,7 +82,8 @@ class ExerciseViewController: CustomUIViewController {
       }
       else if currentItemId == "selectexercise"{
           exercises.iterNext()
-          exercise = exercises.currentExercise
+          exercise = exercises.currentItem
+          speak(exercise)
           print(exercise)
           menu?.updateItemDesc(itemId: "startsession", newDesc: "Start \(exercise) session")
           menu?.updateItemDesc(itemId: "selectexercise", newDesc: "Change exercise, \(exercise) is currently selected")

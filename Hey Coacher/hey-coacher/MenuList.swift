@@ -1,6 +1,30 @@
 
 import Foundation
 
+class CycleList {
+  var idx: Int = 0
+  var count: Int = 0
+  var item = [String]()
+  
+  
+  init(_ item: [String]){
+    self.item = item
+    self.count = item.count
+  }
+  
+  
+  func iterNext() {
+    idx = mod(idx+1,count)
+  }
+  
+  var currentItem: String {
+    return item[idx]
+  }
+  
+  
+}
+
+
 class MenuItem{
   var desc: String
   var id: String
