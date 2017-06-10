@@ -17,6 +17,12 @@
 		CB189ADF1EE068B800910881 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD81EE068B800910881 /* MenuList.swift */; };
 		CB189AE01EE068B800910881 /* DelegateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189AD91EE068B800910881 /* DelegateFunctions.swift */; };
 		CB189AE11EE068B800910881 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB189ADA1EE068B800910881 /* RootViewController.swift */; };
+		CB3122501EEB749F002E10C7 /* AudioEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB31224F1EEB749F002E10C7 /* AudioEffects.swift */; };
+		CB3122571EEB74CB002E10C7 /* jbl_ambiguous.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB3122521EEB74CB002E10C7 /* jbl_ambiguous.mp3 */; };
+		CB3122581EEB74CB002E10C7 /* jbl_begin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB3122531EEB74CB002E10C7 /* jbl_begin.mp3 */; };
+		CB3122591EEB74CB002E10C7 /* jbl_cancel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB3122541EEB74CB002E10C7 /* jbl_cancel.mp3 */; };
+		CB31225A1EEB74CB002E10C7 /* jbl_confirm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB3122551EEB74CB002E10C7 /* jbl_confirm.mp3 */; };
+		CB31225B1EEB74CB002E10C7 /* jbl_no_match.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB3122561EEB74CB002E10C7 /* jbl_no_match.mp3 */; };
 		CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E07D1EE06B53005D4AB0 /* Test.swift */; };
 		CB60E0801EE071C3005D4AB0 /* control_flow.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB60E07F1EE071C3005D4AB0 /* control_flow.txt */; };
 		CB60E0831EE072FB005D4AB0 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */; };
@@ -31,6 +37,10 @@
 		CB60E0D61EE0AE81005D4AB0 /* SpeechEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */; };
 		CB60E0D81EE0E092005D4AB0 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */; };
 		CB60E0DB1EE17782005D4AB0 /* VoiceControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */; };
+		CBA04E111EE9AEEC00B3052B /* WFConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA04E0F1EE9AEEB00B3052B /* WFConnector.framework */; };
+		CBA04E131EE9AF3A00B3052B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA04E121EE9AF3A00B3052B /* SystemConfiguration.framework */; };
+		CBA04E151EE9AF4200B3052B /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA04E141EE9AF4200B3052B /* ExternalAccessory.framework */; };
+		CBA04E171EE9AF4900B3052B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBA04E161EE9AF4900B3052B /* CoreBluetooth.framework */; };
 		CBD2AB951EE0682800974383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2AB941EE0682800974383 /* AppDelegate.swift */; };
 		CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB981EE0682800974383 /* Main.storyboard */; };
 		CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBD2AB9B1EE0682800974383 /* Assets.xcassets */; };
@@ -48,6 +58,12 @@
 		CB189AD81EE068B800910881 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = "hey-coacher/MenuList.swift"; sourceTree = "<group>"; };
 		CB189AD91EE068B800910881 /* DelegateFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DelegateFunctions.swift; path = "hey-coacher/DelegateFunctions.swift"; sourceTree = "<group>"; };
 		CB189ADA1EE068B800910881 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "hey-coacher/RootViewController.swift"; sourceTree = "<group>"; };
+		CB31224F1EEB749F002E10C7 /* AudioEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEffects.swift; sourceTree = "<group>"; };
+		CB3122521EEB74CB002E10C7 /* jbl_ambiguous.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jbl_ambiguous.mp3; sourceTree = "<group>"; };
+		CB3122531EEB74CB002E10C7 /* jbl_begin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jbl_begin.mp3; sourceTree = "<group>"; };
+		CB3122541EEB74CB002E10C7 /* jbl_cancel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jbl_cancel.mp3; sourceTree = "<group>"; };
+		CB3122551EEB74CB002E10C7 /* jbl_confirm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jbl_confirm.mp3; sourceTree = "<group>"; };
+		CB3122561EEB74CB002E10C7 /* jbl_no_match.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jbl_no_match.mp3; sourceTree = "<group>"; };
 		CB60E07D1EE06B53005D4AB0 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		CB60E07F1EE071C3005D4AB0 /* control_flow.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control_flow.txt; sourceTree = "<group>"; };
 		CB60E0821EE072FB005D4AB0 /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +79,10 @@
 		CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechEngine.swift; sourceTree = "<group>"; };
 		CB60E0D71EE0E092005D4AB0 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceControl.swift; sourceTree = "<group>"; };
+		CBA04E0F1EE9AEEB00B3052B /* WFConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WFConnector.framework; sourceTree = "<group>"; };
+		CBA04E121EE9AF3A00B3052B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CBA04E141EE9AF4200B3052B /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		CBA04E161EE9AF4900B3052B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CBD2AB911EE0682700974383 /* Hey Coacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hey Coacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD2AB941EE0682800974383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBD2AB991EE0682800974383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,9 +96,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA04E171EE9AF4900B3052B /* CoreBluetooth.framework in Frameworks */,
+				CBA04E151EE9AF4200B3052B /* ExternalAccessory.framework in Frameworks */,
+				CBA04E131EE9AF3A00B3052B /* SystemConfiguration.framework in Frameworks */,
 				CB60E0971EE08B18005D4AB0 /* Slt.framework in Frameworks */,
 				CB60E08E1EE07AE5005D4AB0 /* AudioToolbox.framework in Frameworks */,
 				CB60E08F1EE07AE5005D4AB0 /* AVFoundation.framework in Frameworks */,
+				CBA04E111EE9AEEC00B3052B /* WFConnector.framework in Frameworks */,
 				CB60E0961EE08B18005D4AB0 /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +122,7 @@
 		CB189AE21EE0693B00910881 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				CB3122511EEB74C1002E10C7 /* Audio */,
 				CB189ADA1EE068B800910881 /* RootViewController.swift */,
 				CB189AD61EE068B800910881 /* GestureHandler.swift */,
 				CB189AD91EE068B800910881 /* DelegateFunctions.swift */,
@@ -105,6 +130,7 @@
 				CB60E0D51EE0AE81005D4AB0 /* SpeechEngine.swift */,
 				CB60E0CC1EE091E4005D4AB0 /* VoiceRecognitionOffline.swift */,
 				CB60E0DA1EE17781005D4AB0 /* VoiceControl.swift */,
+				CB31224F1EEB749F002E10C7 /* AudioEffects.swift */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -120,6 +146,18 @@
 			name = Global;
 			sourceTree = "<group>";
 		};
+		CB3122511EEB74C1002E10C7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				CB3122521EEB74CB002E10C7 /* jbl_ambiguous.mp3 */,
+				CB3122531EEB74CB002E10C7 /* jbl_begin.mp3 */,
+				CB3122541EEB74CB002E10C7 /* jbl_cancel.mp3 */,
+				CB3122551EEB74CB002E10C7 /* jbl_confirm.mp3 */,
+				CB3122561EEB74CB002E10C7 /* jbl_no_match.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		CB60E0811EE071E0005D4AB0 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +169,9 @@
 		CB60E08B1EE07AE5005D4AB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBA04E161EE9AF4900B3052B /* CoreBluetooth.framework */,
+				CBA04E141EE9AF4200B3052B /* ExternalAccessory.framework */,
+				CBA04E121EE9AF3A00B3052B /* SystemConfiguration.framework */,
 				CB60E08C1EE07AE5005D4AB0 /* AudioToolbox.framework */,
 				CB60E08D1EE07AE5005D4AB0 /* AVFoundation.framework */,
 			);
@@ -140,6 +181,7 @@
 		CB60E0911EE08B18005D4AB0 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				CBA04E0F1EE9AEEB00B3052B /* WFConnector.framework */,
 				CB60E0921EE08B18005D4AB0 /* AcousticModelEnglish.bundle */,
 				CB60E0931EE08B18005D4AB0 /* OpenEars.framework */,
 				CB60E0941EE08B18005D4AB0 /* Slt.framework */,
@@ -264,9 +306,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBD2AB9F1EE0682800974383 /* LaunchScreen.storyboard in Resources */,
+				CB3122591EEB74CB002E10C7 /* jbl_cancel.mp3 in Resources */,
 				CBD2AB9C1EE0682800974383 /* Assets.xcassets in Resources */,
+				CB3122581EEB74CB002E10C7 /* jbl_begin.mp3 in Resources */,
 				CB60E0801EE071C3005D4AB0 /* control_flow.txt in Resources */,
 				CB60E0951EE08B18005D4AB0 /* AcousticModelEnglish.bundle in Resources */,
+				CB3122571EEB74CB002E10C7 /* jbl_ambiguous.mp3 in Resources */,
+				CB31225A1EEB74CB002E10C7 /* jbl_confirm.mp3 in Resources */,
+				CB31225B1EEB74CB002E10C7 /* jbl_no_match.mp3 in Resources */,
 				CBD2AB9A1EE0682800974383 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +332,7 @@
 				CB189ADC1EE068B800910881 /* CustomUIViewControllerClass.swift in Sources */,
 				CB60E0DB1EE17782005D4AB0 /* VoiceControl.swift in Sources */,
 				CB60E0D31EE0A46B005D4AB0 /* ProfileViewController.swift in Sources */,
+				CB3122501EEB749F002E10C7 /* AudioEffects.swift in Sources */,
 				CB60E07E1EE06B53005D4AB0 /* Test.swift in Sources */,
 				CB189ADB1EE068B800910881 /* ContainerViewController.swift in Sources */,
 				1C2310AA1EE0B0BD0025D428 /* SettingsViewController.swift in Sources */,
@@ -424,9 +472,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/Framework/mac_osx",
 				);
 				INFOPLIST_FILE = "Hey Coacher/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.imperial-smartbike.Hey-Coacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/OpenEarsHeader.h";
@@ -443,9 +496,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framework",
+					"$(PROJECT_DIR)/Framework/mac_osx",
 				);
 				INFOPLIST_FILE = "Hey Coacher/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.imperial-smartbike.Hey-Coacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/OpenEarsHeader.h";

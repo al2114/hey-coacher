@@ -88,6 +88,7 @@ class RootViewController: UIViewController,
     //====================================//
     
     let initialState = "mainViewController"
+    currentViewControllerIdentifier = initialState
     containerViewIntialize(initialState)
 
     //====================================//
