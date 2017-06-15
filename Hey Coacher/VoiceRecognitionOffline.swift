@@ -11,6 +11,14 @@ extension RootViewController {
 
   // Methods for Openears
   
+  func speechTimeout() {
+    print("Speech detection timeout")
+    playSound("jbl_cancel")
+    successfulVoiceCommand = false
+    processSpeech = false
+    self.speechTimoutTimer.invalidate()
+  }
+
   func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) { // Something was heard
     //    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
 //    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
@@ -18,13 +26,16 @@ extension RootViewController {
 ////      print("Detected word: \"\(hypothesis!)\"")
 //    }
     print("Detected: \(hypothesis!)")
-    if hypothesis!.range(of:"haycoacher") != nil {
+    if hypothesis!.range(of:"haycoacher") != nil &&
+      speechRecognitionEnabled
+    {
       if synthesizer.isSpeaking{
         synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
       }
       print("Voice command activated")
       playSound("jbl_begin")
       userSpeaking = true
+      speechTimoutTimer = Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(self.speechTimeout), userInfo: nil, repeats: false)
       return
     }
     if processSpeech {
@@ -41,6 +52,7 @@ extension RootViewController {
         successfulVoiceCommand = false
       }
       processSpeech = false
+      self.speechTimoutTimer.invalidate()
     }
   }
   

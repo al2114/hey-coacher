@@ -17,15 +17,15 @@ func playSound(_ soundfile: String) {
   }
   
   do {
-    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-    try AVAudioSession.sharedInstance().setActive(true)
+//    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//    try AVAudioSession.sharedInstance().setActive(true)
     
     player = try AVAudioPlayer(contentsOf: url)
     guard let player = player else { return }
     
     player.play()
-    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-    try AVAudioSession.sharedInstance().setActive(true)
+//    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+//    try AVAudioSession.sharedInstance().setActive(true)
   } catch let error {
     print(error.localizedDescription)
   }

@@ -18,7 +18,7 @@ struct User{
 }
 
 var userList: [User] = [
-  User(name: "Mark", id: "1"),
+  User(name: "Mark", id: "41"),
   User(name: "Michael", id: "3"),
   User(name: "Andy", id: "7"),
   User(name: "Prakhar", id: "29")
@@ -43,7 +43,7 @@ class ProfileViewController: CustomUIViewController {
       profileList += [MenuItem(user.name, user.id)]
     }
 
-    profileList += [MenuItem("Create new profile", "newprofile")]
+//    profileList += [MenuItem("Create new profile", "newprofile")]
     
     menu = MenuList(profileList, message: "Select a profile")
     updateLabels()
@@ -102,6 +102,7 @@ class ProfileViewController: CustomUIViewController {
         if user.id == currentItemId{
           name = user.name
           speak("Selected \(user.name)")
+          userID = Int(user.id)!
           welcome = true
         }
       }

@@ -21,6 +21,7 @@ var voices: CycleList = CycleList ([
   "en-AU",
   "en-IE"
   ])
+
 var utteranceRateId: String = "Normal"
 
 func languageFromCode(_ lang: String) -> String {
@@ -39,6 +40,12 @@ func languageFromCode(_ lang: String) -> String {
   return ""
 }
 
+var hapticEnabled: Bool = false
+var motivationEnabled: Bool = false
+var metricUnits: Bool = true
+var speechRecognitionEnabled: Bool = false
+
+
 class SettingsViewController: CustomUIViewController {
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var prevLabel: UILabel!
@@ -50,7 +57,12 @@ class SettingsViewController: CustomUIViewController {
         super.viewDidLoad()
       
       let settingsItemList = [MenuItem("Voice: \(languageFromCode(utteranceVoice.language))", "voice"),
-                            MenuItem("Utterance rate: \(utteranceRateId)", "utterancerate")]
+                            MenuItem("Utterance rate: \(utteranceRateId)", "utterancerate"),
+                            MenuItem("Haptic feedback: \(hapticEnabled ? "Enabled" : "Disabled")","haptic"),
+                            MenuItem("Motivation speech: \(motivationEnabled ? "Enabled":"Disabled")","motivation"),
+                            MenuItem("Speech recognition: \(speechRecognitionEnabled ? "Enabled":"Disabled")","speech-recognition"),
+                            MenuItem("Units: \(metricUnits ? "Meters" : "Miles")", "unit"),
+                            ]
         
         menu = MenuList(settingsItemList)
         updateLabels()
@@ -84,17 +96,35 @@ class SettingsViewController: CustomUIViewController {
         utteranceRateId = utteranceRates.currentItem
         updateUtteranceRate(utteranceRateId)
         menu?.updateItemDesc(itemId: "utterancerate", newDesc: "Utterance rate: \(utteranceRateId)")
-        updateLabels()
         speak(utteranceRateId)
       }
       else if currentItemId == "voice"{
         voices.iterNext()
         utteranceVoice = AVSpeechSynthesisVoice(language: voices.currentItem)!
         menu?.updateItemDesc(itemId: "voice", newDesc: "Voice: \(languageFromCode(voices.currentItem))")
-        updateLabels()
         speak((languageFromCode(voices.currentItem)))
       }
-    
+      else if currentItemId == "haptic"{
+        hapticEnabled = !hapticEnabled
+        menu?.updateItemDesc(itemId: "haptic", newDesc: "Haptic feedback: \(hapticEnabled ? "Enabled" : "Disabled")")
+        speak("\(hapticEnabled ? "Enabled" : "Disabled")")
+      }
+      else if currentItemId == "motivation"{
+        motivationEnabled = !motivationEnabled
+        menu?.updateItemDesc(itemId: "motivation", newDesc: "Motivation speech: \(motivationEnabled ? "Enabled" : "Disabled")")
+        speak("\(motivationEnabled ? "Enabled" : "Disabled")")
+      }
+      else if currentItemId == "speech-recognition"{
+        speechRecognitionEnabled = !speechRecognitionEnabled
+        menu?.updateItemDesc(itemId: "speech-recognition", newDesc: "Motivation speech: \(speechRecognitionEnabled ? "Enabled" : "Disabled")")
+        speak("\(speechRecognitionEnabled ? "Enabled" : "Disabled")")
+      }
+      else if currentItemId == "unit"{
+        metricUnits = !metricUnits
+        menu?.updateItemDesc(itemId: "unit", newDesc: "Units: \(metricUnits ? "Meters" : "Miles")")
+        speak("\(metricUnits ? "metric" : "imperial")")
+      }
+      updateLabels()
     }
   
   func updateUtteranceRate(_ id: String ){

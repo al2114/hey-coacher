@@ -42,7 +42,3 @@ class CustomUIViewController: UIViewController, AVSpeechSynthesizerDelegate {
   
 }
 
-
-protocol RootDelegate {
-  func transitionTo(viewId: String, options: String)
-}

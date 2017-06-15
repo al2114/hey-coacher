@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreBluetooth
 
 enum ActionKey {
   case swipeLeft
@@ -20,22 +21,30 @@ enum ActionKey {
 class RootViewController: UIViewController,
                           AVSpeechSynthesizerDelegate,
                           OEEventsObserverDelegate,
+                          CBCentralManagerDelegate,
+                          CBPeripheralDelegate,
                           RootDelegate  {
   
   @IBOutlet weak var containerView: UIView!
   weak var currentViewController: CustomUIViewController?
   
   var openEarsEventsObserver = OEEventsObserver()
-  
   let lmGenerator = OELanguageModelGenerator()
-
   let OEname = "HeyCoacherLanguageModel"
-
   var lmPath: String = ""
   var dicPath: String = ""
   
+  var timeoutTimer = Timer()
+  var speechTimoutTimer = Timer()
 
   
+  let REMOTE_NAME = "Touch Signal"
+  let REMOTE_GESTURE_UUID = CBUUID(string: "A001")
+  let REMOTE_SERVICE_UUID = CBUUID(string: "A000")
+  
+  var manager:CBCentralManager!
+  var remote:CBPeripheral!
+  let options = [CBCentralManagerOptionShowPowerAlertKey:0]
   
   override func viewDidLoad() {
     
@@ -43,8 +52,11 @@ class RootViewController: UIViewController,
     // Do any additional setup after loading the view, typically from a nib.
 
     
-    self.accessibilityElementsHidden = true
-    self.containerView.accessibilityElementsHidden = true
+    self.isAccessibilityElement = true
+    self.accessibilityTraits = UIAccessibilityTraitAllowsDirectInteraction
+    self.containerView.isAccessibilityElement = true
+    self.containerView.accessibilityTraits = UIAccessibilityTraitAllowsDirectInteraction
+//    self.containerView.accessibilityElementsHidden = true
     
     //============================================//
     
@@ -93,11 +105,13 @@ class RootViewController: UIViewController,
 
     //====================================//
     
-    //    SPEECH SYNTEHSIZER DELEGATION   //
+    //            DELEGATION              //
     
     //====================================//
     
-    synthesizer.delegate = self
+    synthesizer.delegate = self // Speech synthesis
+    manager = CBCentralManager(delegate: self, queue: nil, options: options) // Bluetooth manager
+    
 
     
     //====================================//

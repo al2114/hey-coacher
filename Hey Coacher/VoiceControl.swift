@@ -16,6 +16,7 @@ let words = [ "haycoacher",
               "settings",
               "irish accent",
               "british accent",
+              "anlysis"
 ]
 
 //var inSession: Bool = false
@@ -36,6 +37,11 @@ extension RootViewController {
     else if cmd == "main menu" {
       transitionTo(viewId: "mainViewController", options: "")
     }
+    else if cmd == "anlysis" {
+      if currentViewControllerIdentifier == "sessionViewController" {
+        analyzePerformance()
+      }
+    }
     else if cmd == "end session"{
       if currentViewControllerIdentifier == "sessionViewController" {
         speak("Ending session")
@@ -46,14 +52,20 @@ extension RootViewController {
       }
     }
     else if cmd == "check readings"{
-      var readings: String = ""
       
-      readings =  "Time: \(timeToString(interval)), " +
-                  "Distance: \(distance) kilometers, " +
-                  "Heartrate: \(heartrate) BPM, " +
-                  "Cadence: \(cadence) rounds per minute "
-      
-      speak(readings)
+      if currentViewControllerIdentifier == "sessionViewController" {
+        speak("Ending session")
+          var readings: String = ""
+          readings =  "Time: \(timeToString(interval)), " +
+            "Distance: \(distance) kilometers, " +
+            "Heartrate: \(heartrate) BPM, " +
+          "Cadence: \(cadence) rounds per minute "
+          
+          speak(readings)      }
+      else {
+        speak("You are not currently in a session")
+      }
+
     }
     else if cmd == "switch profile"{
       transitionTo(viewId: "profileViewController", options: "")
