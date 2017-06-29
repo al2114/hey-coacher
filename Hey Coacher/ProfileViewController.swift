@@ -43,7 +43,7 @@ class ProfileViewController: CustomUIViewController {
       profileList += [MenuItem(user.name, user.id)]
     }
 
-//    profileList += [MenuItem("Create new profile", "newprofile")]
+    profileList += [MenuItem("Create new profile", "newprofile")]
     
     menu = MenuList(profileList, message: "Select a profile")
     updateLabels()

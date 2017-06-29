@@ -12,11 +12,13 @@ let words = [ "haycoacher",
               "main menu",
               "end session",
               "check readings",
+              "to mark",
               "switch profile",
               "settings",
               "irish accent",
+              "current performance",
               "british accent",
-              "anlysis"
+              "anlysis",
 ]
 
 //var inSession: Bool = false
@@ -37,7 +39,13 @@ extension RootViewController {
     else if cmd == "main menu" {
       transitionTo(viewId: "mainViewController", options: "")
     }
-    else if cmd == "anlysis" {
+    else if cmd == "to mark" {
+      speak("Switching profile to Mark")
+      name = "Mark"
+      userID = 41
+      welcome = true
+    }
+    else if cmd == "anlysis" || cmd == "performance" {
       if currentViewControllerIdentifier == "sessionViewController" {
         analyzePerformance()
       }
@@ -45,6 +53,7 @@ extension RootViewController {
     else if cmd == "end session"{
       if currentViewControllerIdentifier == "sessionViewController" {
         speak("Ending session")
+        serviceEndSession()
         transitionTo(viewId: "mainViewController", options: "")
       }
       else {
@@ -54,14 +63,14 @@ extension RootViewController {
     else if cmd == "check readings"{
       
       if currentViewControllerIdentifier == "sessionViewController" {
-        speak("Ending session")
           var readings: String = ""
           readings =  "Time: \(timeToString(interval)), " +
             "Distance: \(distance) kilometers, " +
             "Heartrate: \(heartrate) BPM, " +
-          "Cadence: \(cadence) rounds per minute "
+          "Cadence: \(cadence) revolutions per minute "
           
-          speak(readings)      }
+          speak(readings)
+      }
       else {
         speak("You are not currently in a session")
       }

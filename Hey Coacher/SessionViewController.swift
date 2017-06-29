@@ -95,12 +95,12 @@ class SessionViewController: CustomUIViewController,
       
       let exerciseItemList = [MenuItem("Time: \(timeToString(seconds))", "reading-time"),
                               //                            MenuItem("Distance: \(Double(Int(distanceQuantity.doubleValue(for: distanceUnit)*10))/10) km", "reading-distance"),
-        MenuItem("Distance: 1.3 km", "reading-distance"),
+        MenuItem("Distance: 0.7 km", "reading-distance"),
         //                            MenuItem("Heartrate: \(heartrate) BPM", "reading-heartrate"),
         MenuItem("Heartrate: 93 bpm", "reading-heartrate"),
         
         //                            MenuItem("Cadence: \(cadence) rounds per minute", "reading-cadence"),
-        MenuItem("Cadence: 67 revolutions per minute", "reading-cadence"),
+        MenuItem("Cadence: 23.4 revolutions per minute", "reading-cadence"),
         MenuItem("Pace: 4 minutes and 30 seconds per kilometer", "reading-pace"),
         MenuItem("Analyze current performance", "analyze")]
       
@@ -212,6 +212,9 @@ func analyzePerformance() {
   }
   else {
     let jsonText = serviceAnlyzeCurrentSession()
+    
+    print(jsonText)
+    
     if let result = jsonToDictionary(text: jsonText) {
       print("Speaking: \(String(describing: result["analysis"]))")
       speak(result["analysis"] as! String)
