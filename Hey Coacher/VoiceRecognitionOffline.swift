@@ -4,33 +4,55 @@ let beginSoundID: SystemSoundID = 1117
 let endSoundID: SystemSoundID = 1118
 var userSpeaking: Bool = false
 var processSpeech: Bool = false
-
+var successfulVoiceCommand: Bool = false
 
 extension RootViewController {
   
 
   // Methods for Openears
   
+  func speechTimeout() {
+    print("Speech detection timeout")
+    playSound("jbl_cancel")
+    successfulVoiceCommand = false
+    processSpeech = false
+    self.speechTimoutTimer.invalidate()
+  }
+
   func pocketsphinxDidReceiveHypothesis(_ hypothesis: String!, recognitionScore: String!, utteranceID: String!) { // Something was heard
     //    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
 //    print("Local callback: The received hypothesis is \(hypothesis!) with a score of \(recognitionScore!) and an ID of \(utteranceID!)")
 //    if words.contains(hypothesis) {
 ////      print("Detected word: \"\(hypothesis!)\"")
 //    }
-    if hypothesis!.range(of:"hey coach") != nil {
+    print("Detected: \(hypothesis!)")
+    if hypothesis!.range(of:"haycoacher") != nil &&
+      speechRecognitionEnabled
+    {
+      if synthesizer.isSpeaking{
+        synthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+      }
       print("Voice command activated")
-      AudioServicesPlaySystemSound(beginSoundID)
+      playSound("jbl_begin")
       userSpeaking = true
+      speechTimoutTimer = Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(self.speechTimeout), userInfo: nil, repeats: false)
       return
     }
     if processSpeech {
       for word in words {
-        if hypothesis!.range(of:word) != nil {
+        if hypothesis!.contains(word) {
           print("User called for: \(word)")
+          playSound("jbl_confirm")
+          successfulVoiceCommand = true
           voiceCommand(word)
         }
       }
+      if !successfulVoiceCommand {
+        playSound("jbl_cancel")
+        successfulVoiceCommand = false
+      }
       processSpeech = false
+      self.speechTimoutTimer.invalidate()
     }
   }
   
@@ -48,17 +70,16 @@ extension RootViewController {
   // An optional delegate method of OEEventsObserver which informs that Pocketsphinx detected speech and is starting to process it.
   func pocketsphinxDidDetectSpeech() {
 //    print("Detected speech")
-    //    print("Local callback: Pocketsphinx has detected speech.") // Log it.
+        print("Local callback: Pocketsphinx has detected speech.") // Log it.
   }
   
   // An optional delegate method of OEEventsObserver which informs that Pocketsphinx detected a second of silence, indicating the end of an utterance.
   func pocketsphinxDidDetectFinishedSpeech() {
-    //    print("Local callback: Pocketsphinx has detected a second of silence, concluding an utterance.") // Log it.
+        print("Local callback: Pocketsphinx has detected a second of silence, concluding an utterance.") // Log it.
 //    print("Finished speaking")
     if userSpeaking {
-      AudioServicesPlaySystemSound(endSoundID)
-      userSpeaking = false
       processSpeech = true
+      userSpeaking = false
     }
   }
   

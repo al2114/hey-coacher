@@ -7,14 +7,15 @@
 //
 
 import UIKit
-var userID: Int = 1
-var sessionID: Int = 0
+
 
 var exercises: CycleList = CycleList([
-  "cycling",
+  "biking",
   "walking",
   "jogging"
   ])
+
+var exercise: String = exercises.currentItem
 
 class ExerciseViewController: CustomUIViewController {
 
@@ -25,9 +26,6 @@ class ExerciseViewController: CustomUIViewController {
   
   var menu: MenuList?
   
-  var exercise: String = exercises.currentItem
-    
-  
   override func viewDidLoad() {
       super.viewDidLoad()
 
@@ -36,8 +34,13 @@ class ExerciseViewController: CustomUIViewController {
                           MenuItem("Create new exercise profile", "createexercise"),
                           MenuItem("Analyze overall performance", "analyze")]
   
-      
+    if goBack {
+      menu = MenuList(exerciseItemList, idx: prevIdx)
+      goBack = false
+    }
+    else {
       menu = MenuList(exerciseItemList)
+    }
       updateLabels()
       
       // Do any additional setup after loading the view.
@@ -61,23 +64,9 @@ class ExerciseViewController: CustomUIViewController {
       let currentItemId: String = (menu?.currentId())!
       
       if currentItemId == "startsession"{
-//          print("Start Session")
-//          if let url = URL(string: "http://databasequerypage.azurewebsites.net/query.aspx?request=startsession&id=\(userID)&class=\(exercise)") {
-//              do {
-//                  var contents = try String(contentsOf: url, encoding: .utf8)
-//                  let summarydata = contents.format()
-//                  let summarydataArr = summarydata.components(separatedBy: " ")
-//                  
-//                  sessionID = Int(summarydataArr[4])!
+          print("Start Session")
                   delegate?.transitionTo(viewId: "sessionViewController", options: "")
-//              }
-//              catch {
-//                  print("Contents could not be loaded")
-//              }
-//          }
-//          else {
-//              print("The URL was bad")
-//          }
+
         
       }
       else if currentItemId == "selectexercise"{
@@ -88,8 +77,6 @@ class ExerciseViewController: CustomUIViewController {
           menu?.updateItemDesc(itemId: "startsession", newDesc: "Start \(exercise) session")
           menu?.updateItemDesc(itemId: "selectexercise", newDesc: "Change exercise, \(exercise) is currently selected")
           updateLabels()
-        
-        
           //print("Select Session")
           //delegate?.transitionTo(viewId: "selectExerciseViewController")
       }
@@ -99,11 +86,19 @@ class ExerciseViewController: CustomUIViewController {
       }
       else if currentItemId == "analyze"{
           print("Data Analysis")
+          delegate?.transitionTo(viewId: "analysisViewController", options: "")
+//          analyzePerformance()
           //delegate?.transitionTo(viewId: "dataAnalyzeViewController")
       }
       
   }
 
+  func analyzePerformance() {
+    speak("Analyzing previous session: Biking, June 12th, 2017, 13:08. Total time: 16 minutes and 35 seconds. Distance: 5.0 km. Average pace: 3.32 minutes per km. Quarterly split pace. First quarter: 3.39 minutes per km. second quarter: 3.10 minutes per km, third quarter: 3.29 minutes per km, fourth quarter: 3.50 minutes per km.")
+    
+    speakWait("Compared to last the average of last five sessions, your average pace has improved by 12 seconds per kilometer")
+  }
+  
   func updateLabels(){
       mainLabel.text = menu?.currentItem;
       prevLabel.text = menu?.previousItem

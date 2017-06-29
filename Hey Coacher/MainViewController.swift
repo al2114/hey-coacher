@@ -102,14 +102,14 @@ class MainViewController: CustomUIViewController {
       delegate?.transitionTo(viewId: "exerciseViewController", options: "")
     }
     else if currentItemId == "bluetooth"{
-      speak("Scanning for bluetooth devices... ... No devices found")
-      print("transition bluetooth")
+      delegate?.transitionTo(viewId: "bluetoothViewController", options: "")
+//      print("transition bluetooth")
     }
     else if currentItemId == "settings"{
       delegate?.transitionTo(viewId: "settingsViewController", options: "")
     }
     else if currentItemId == "help"{
-      print("transition help")
+      delegate?.transitionTo(viewId: "helpViewController", options: "")
     }
     
   }

@@ -43,7 +43,7 @@ extension RootViewController {
     self.containerAddSubview(newViewController.view, toView:self.containerView!)
     newViewController.view.alpha = 0
     newViewController.view.layoutIfNeeded()
-    UIView.animate(withDuration: 0.1, animations: {
+    UIView.animate(withDuration: 0.0, animations: {
       newViewController.view.alpha = 1
       oldViewController.view.alpha = 0
     },

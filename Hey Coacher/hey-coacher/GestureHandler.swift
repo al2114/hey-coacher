@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 extension RootViewController{
   func swipeHandler(_ sender: UISwipeGestureRecognizer) {
